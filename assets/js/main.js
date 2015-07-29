@@ -1,0 +1,5 @@
+$(function(){
+    $('.navicon').click(function(){
+        
+    });
+});
