@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'FontSheliaVnfRegular';
+  src: url('../fonts/shelia-vnf-regular.eot');
+  src: url('../fonts/shelia-vnf-regular.eot') format('embedded-opentype'), url('../fonts/shelia-vnf-regular.woff2') format('woff2'), url('../fonts/shelia-vnf-regular.woff') format('woff'), url('../fonts/shelia-vnf-regular.ttf') format('truetype'), url('../fonts/shelia-vnf-regular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'VnfLobster';
+  src: url('../fonts/vnf-lobster.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'VnfItcLubalinGraphRegular';
+  src: url('../fonts/vnf-itc-lubalin-graph-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
