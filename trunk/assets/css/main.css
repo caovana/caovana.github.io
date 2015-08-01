@@ -126,34 +126,4 @@ body {
     width: 50%;
     padding: 10px;
     float: right;
-	font-family: "VnfBodoniRegular", serif;
-	font-weight:200;
-}
-.piece{
-	text-align:center;
-	box-shadow: 0 0 2px 1px rgba(0,0,0,.06),0 1px 5px rgba(0,0,0,.1);
-	margin-bottom: 5rem;
-}
-.thumbnail{
-	width: 100%;
-}
-.ptitle{
-	font-size: 3.5rem;
-	font-weight:400;
-	text-align:	center;
-	line-height: 120%;
-}
-.pdescript{
-	font-size: 2rem;
-	text-align:justify;
-	padding: 0 10px;
-}
-.read-more{
-    font-family: "VnfItcLubalinGraphRegular", serif;
-	font-size: 1.5rem;
-	display:inline-block;
-	color: #795548;
-	border: 1px solid #795548;
-	padding: 10px;
-	margin: 3rem;
 }

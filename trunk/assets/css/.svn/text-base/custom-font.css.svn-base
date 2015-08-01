@@ -17,15 +17,3 @@
   font-weight: normal;
   font-style: normal;
 }
-@font-face {
-  font-family: 'VnfFilosofiaOTRegular';
-  src: url('../fonts/vnf-filosofia-ot-regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'VnfBodoniRegular';
-  src: url('../fonts/vnf-bodoni-regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
