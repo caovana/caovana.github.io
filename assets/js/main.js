@@ -1,9 +1,20 @@
 $(function(){
+	// Setup menu button
     $('.navicon').click(function(){
         $('.main-container').toggleClass( "turn-left" );
         $(this).toggleClass( "hold" );
     });
-
+	// Setup roll top button
+	$(window).scroll(function() {
+		if($(this).scrollTop() >= $(this).height()) {
+			$('#toTop').fadeIn();
+		} else {
+			$('#toTop').fadeOut();
+		}
+	});
+	$('#toTop').click(function() {
+		$('body,html').animate({scrollTop:0},800);
+	});
 //      Setup mobile scroll left and right
     var current = 0,
         startX = '',

@@ -1,8 +1,0 @@
-<iframe allowtransparency="true" frameborder="0" id="JotFormIFrame" onload="window.parent.scrollTo(0,0)" scrolling="no" src="http://form.jotform.me/form/41870574657465" style="border: none; height: 3481px; width: 100%;"></iframe>
-<script type="text/javascript">window.handleIFrameMessage = function(e) {var args = e.data.split(":");var iframe = document.getElementById("JotFormIFrame");if (!iframe)return;switch (args[0]) {case "scrollIntoView":iframe.scrollIntoView();break;case "setHeight":iframe.style.height = args[1] + "px";break;}};if (window.addEventListener) {window.addEventListener("message", handleIFrameMessage, false);} else if (window.attachEvent) {window.attachEvent("onmessage", handleIFrameMessage);}</script>
-</div>
-<script>
-document.getElementById("JotFormIFrame").onload = function() {
-  document.getElementById('jpreloader').style.display = 'none';
-};
-</script>

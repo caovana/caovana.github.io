@@ -1,28 +1,28 @@
 <!doctype html>
-<html>
+<html><!-- InstanceBegin template="/Templates/main-layout.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <!-- TemplateBeginEditable name="doctitle" -->
+        <!-- InstanceBeginEditable name="doctitle" -->
 		<title>Thuốc điều trị bệnh viêm họng hạt | Cao Văn A</title>
-        <!-- TemplateEndEditable -->
+        <!-- InstanceEndEditable -->
 		<link rel="shortcut icon" href="favicon.ico">
         
         <!-- CSS -->
         <link rel="stylesheet" href="assets/css/main.css">
         <link async rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link async rel="stylesheet" href="assets/css/custom-font.css">
-        <!-- TemplateBeginEditable name="css" -->
-        <!-- TemplateEndEditable -->
+        <!-- InstanceBeginEditable name="css" -->
+        <!-- InstanceEndEditable -->
 <!-- JS -->
         <script src="assets/js/jquery/jquery.mobile-1.4.5.min.js"></script>
         <script src="assets/js/jquery/jquery-2.1.4.min.js"></script>
         <script src="assets/js/main.js"></script>
-        <!-- TemplateBeginEditable name="js" -->
-        <!-- TemplateEndEditable -->
+        <!-- InstanceBeginEditable name="js" -->
+        <!-- InstanceEndEditable -->
 		
         
-        <!-- TemplateBeginEditable name="head" -->
+        <!-- InstanceBeginEditable name="head" -->
 		<!-- Facebook Open Graph -->
 		<meta property="og:title" content="Thuốc điều trị bệnh viêm họng hạt || <strong><em>Cao Văn A</em></strong>">
 		<meta property="og:site_name" content="viemhonghat">
@@ -30,7 +30,9 @@
 		<meta property="og:url" content="http://viemhonghat.com">
 		<meta property="og:description" content="Tôi có thể trị bệnh viêm họng hạt mãn tính dứt điểm. Cách điều trị bệnh viêm họng hạt mãn tính thật sự không khó, thuốc chữa viêm họng hạt mãn tính không phải là không có, điều cần nhất là bạn phải kiên trì.">
 		<meta property="og:image" content="http://viemhonghat.com/assets/viemhonghat.jpg">
+        <!-- TemplateBeginEditable name="head" -->
         <!-- TemplateEndEditable -->
+        <!-- InstanceEndEditable -->
     </head>
     <body>
         <div class="top-container">
@@ -93,11 +95,29 @@
                 </h3>
             </div>
             <div class="right-container">
-				<!-- TemplateBeginEditable name="right-content" -->
-				<!-- TemplateEndEditable -->
+				<!-- InstanceBeginEditable name="right-content" -->
+            	<div class="piece">
+                	<!-- TemplateBeginEditable name="article-photo" -->
+                	<img class="thumbnail" alt="cách điều trị bệnh viêm họng hạt" src="assets/images/dieu-tri-benh-viem-hong-hat-man-tinh.jpg">
+                	<!-- TemplateEndEditable -->
+                	<!-- TemplateBeginEditable name="article-title" -->
+				  	<h1 class="ptitle">
+                		Tiêu đề bài viết
+               	  	</h1>
+                	<!-- TemplateEndEditable -->
+                    <div class="pdescript">
+                    <!-- TemplateBeginEditable name="article-content" -->
+                    	Nội dung bài viết
+                    <!-- TemplateEndEditable -->
+                    </div>
+                    <!-- TemplateBeginEditable name="article-optional-button" -->
+                    <a class="read-more" href="chua-viem-hong-hat-man-tinh.html">Xem chi tiết »</a>
+                    <!-- TemplateEndEditable -->
+                </div>
+			  <!-- InstanceEndEditable -->
             </div>
         </div>
 		<a id="treatment-button" href="../gui-benh-an-chua-viem-hong-hat-man-tinh.html">Bắt đầu điều trị</a>
     	<div id="toTop"></div>
     </body>
-</html>
+<!-- InstanceEnd --></html>

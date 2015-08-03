@@ -32,13 +32,13 @@ body {
 	padding:18px;
 	border-radius:5px;
 	position:fixed; /* this is the magic */
-	bottom:0; /* together with this to put the div at the bottom*/
-	right:0;
+	bottom:10px; /* together with this to put the div at the bottom*/
+	right:10px;
 	cursor:pointer;
 	display:none;
 	color:#fff;
 	font-size:11px;
-	opacity: 0.7;
+	opacity: 0.5;
 }
 #toTop:before{
 	content:"";
@@ -59,19 +59,15 @@ body {
 	left:13px;
 	top:18px;
 }
-#treatment-button{
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	height: 38px;
-	border:1px solid #ccc;
-	color: #fff;
-	background:#333;
-	border-radius: 4px;
-	opacity: 0.7;
+#treatment{
+	display:block;
 	padding: 10px;
-	font-size: 1.5rem;
-    font-family: "VnfItcLubalinGraphRegular", serif;
+	position: fixed;
+	top:0;
+	background-color: #fff;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	color: #bababa;
 }
 
 /* Page Head */
