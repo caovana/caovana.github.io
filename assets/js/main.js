@@ -62,5 +62,6 @@ $(function(){
     });
 	
 	//Show call button
-	if(jQuery.browser.mobile){$('.call-button').show();}
+	if(jQuery.browser.mobile){}
+	else{$('.call-button').hide();}
 });
