@@ -22,8 +22,6 @@ $(function(){
 		}, 500);
 		return false;
 	});
-	//Show call button
-	if(jQuery.browser.mobile){$('.call-button').show();}
 //      Setup mobile scroll left and right
     var current = 0,
         startX = '',
@@ -62,4 +60,7 @@ $(function(){
             }
         }
     });
+	
+	//Show call button
+	if(jQuery.browser.mobile){$('.call-button').show();}
 });
