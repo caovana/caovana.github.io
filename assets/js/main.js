@@ -8,8 +8,13 @@ $(function(){
 	});
 	
 	// Setup menu button
+	
     $('.navicon').click(function(){
-        $('.main-container').toggleClass( "turn-left" );
+		if ($('.main-container').offset().left == 0){
+			$(".main-container").css("left","-100%");
+		}else{
+			$(".main-container").css("left","0");
+		}
         $(this).toggleClass( "hold" );
     });
 	// Setup roll top button
@@ -32,5 +37,5 @@ $(function(){
 	});
 
 	//Show call button
-	if(typeof jQuery.browser.mobile != 'undefined'){$('.call-button').show()};
+	//if(typeof jQuery.browser.mobile != 'undefined'){$('.call-button').show()};
 });
