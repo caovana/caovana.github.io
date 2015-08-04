@@ -13,7 +13,7 @@ html, body {
     min-height: 100%;
     margin: 0;
     padding: 0;
-    font-family: Verdana, sans-serif;
+    font-family: Verdana, serif;
     font-size: 10px;
 }
 body {
@@ -73,6 +73,18 @@ body {
 	font-size: 1.5rem;
     font-family: "VnfItcLubalinGraphRegular", serif;
 }
+.call-button{
+	display: inline-block;
+	background: #f3f3f3;
+	border: 1px solid #dcdcdc;
+	width: 70px;
+	height: 34px;
+	padding: 5px;
+	line-height: 100%;
+	font-size: 1.7rem;
+	text-align: center;
+	float: right;
+}
 
 /* Page Head */
 .top-container{
@@ -119,6 +131,7 @@ body {
     color: #6C6C6C;
     background-color: #fff;
     text-align: center;
+	box-shadow: 0 0 2px 1px rgba(0,0,0,.06),0 1px 5px rgba(0,0,0,.1);
 }
 .logo{
     margin-top: 20px;
@@ -170,6 +183,10 @@ body {
     line-height: 150%;
     margin: 5px 0;
 }
+.fast-contact{
+	font-size: 1.5rem;
+	text-align: left;
+}
 /*== Right container */
 .right-container{
     width: 50%;
@@ -182,6 +199,7 @@ body {
 	text-align:center;
 	box-shadow: 0 0 2px 1px rgba(0,0,0,.06),0 1px 5px rgba(0,0,0,.1);
 	margin-bottom: 5rem;
+	background-color: white;
 }
 .thumbnail{
 	width: 100%;
@@ -208,4 +226,30 @@ body {
 }
 .long-content img{
 	max-width: 100%;
+}
+@media screen and (min-width: 1024px) {
+	.top-container{
+		text-align: center;
+	}
+	.navicon{
+		display: none;
+	}
+	.site-name{
+		float: none;
+	}
+	.main-container{
+		width: 100%;
+		display: table-row;
+	}
+	.left-container{
+		width: 30%;
+		display: table-cell;
+	}
+	.right-container{
+		width: 70%;
+		display: table-cell;
+	}
+	.turn-left{
+		left: 0
+	}
 }

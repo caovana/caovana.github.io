@@ -1,5 +1,5 @@
 <!doctype html>
-<html><!-- InstanceBegin template="/Templates/main-layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<html><!-- InstanceBegin template="/Templates/treatment-step.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -14,23 +14,90 @@
         <link async rel="stylesheet" href="assets/css/custom-font.css">
         <!-- InstanceBeginEditable name="css" -->
         <style type="text/css">
-			.error-404{
+			#treatment-button{
+				display:none;
 			}
-			.code-404{
-				font-size: 5rem;
-				fon-weight: bold;margin: 25px;
-
+			.right-container{
+				padding: 0;	
 			}
-			.detail-404{
+			.treatment-nav{
+				height: 40px;
+				border: 1px solid #795548;
+				color: #795548;	
+				background: white;
+				width: 100%;
+			}
+			.on-top{
+				position: fixed;
+				top:0;
+				left: 0;
+			}
+			.treatment-nav a{
+				  display: inline-block;
+				  vertical-align: middle;
+				  padding-bottom: 9px;
+				  /* line-height: 100%; */
+				  /* height: 100%; */
+				  font-size: 1.5rem;
+				  font-family: "VnfItcLubalinGraphRegular", serif;
+				
+			}
+			.treatment-nav i{
+				font-size: 2rem;
+				margin: 0px 6px;
+				margin-top: 8px;
+			}
+			.tm1{
+				padding-left: 10px;
+			}
+			.tm2{
+				font-weight:bold;
+			}
+			.tm3{
+				padding-right: 10px;
+			}
+			.treament-content{
+				margin: 10px;
+				padding: 10px;
+				padding-bottom: 30px;
+				text-align: justify;
 				font-size: 2rem;
 			}
+			.treament-content>h1{
+				font-size: 4rem;
+				text-align: center;
+			}
+			.treament-content>h2{
+				font-size: 2rem;
+				margin: 5px;
+			}
+			.phone-no{
+				font-weight:normal;
+				margin-left:30px;
+			}
+			
 		</style>
+        
         <!-- InstanceEndEditable -->
 <!-- JS -->
         <script src="assets/js/jquery/jquery.mobile-1.4.5.min.js"></script>
         <script src="assets/js/jquery/jquery-2.1.4.min.js"></script>
         <script src="assets/js/main.js"></script>
         <!-- InstanceBeginEditable name="js" -->
+        <script type="text/javascript">
+			$(function(){
+				$(window).scroll(function() {
+					if($(this).scrollTop() >= 50) {
+						$('.treatment-nav').addClass("on-top");
+					} else {
+						$('.treatment-nav').removeClass("on-top");
+					}
+				});
+				$('html, body').animate({
+					scrollTop: $("#thanh-toan").offset().top
+				}, 500);
+			});
+		</script>
         <!-- InstanceEndEditable -->
 		
         
@@ -118,16 +185,36 @@
                 </h3>
             </div>
             <div class="right-container">
-				<!-- InstanceBeginEditable name="right-content" -->
-                <div class="error-404">
-                	<center>
-                    	<p class="code-404">404</p>
-                        <h1 class="message-404">Không tìm thấy trang bạn yêu cầu!</h1>
-                        <p class="detail-404">Xin lỗi vì bất tiện này, website đang được nâng cấp nên có một số thành phần chưa hoạt động, mong bạn thông cảm.</p>
-                        <a class="gohome read-more" href="index.html">Quay về trang chủ</a>
-                    </center>
+				
+                <div class="treatment-nav">
+                	<a class="tm1" href="gui-benh-an-chua-viem-hong-hat-man-tinh.html">Gửi bệnh án</a>
+                    <i class="fa fa-angle-right"></i>
+                    <a class="tm2" href="thanh-toan-chua-benh-viem-hong-hat-man-tinh.html">Gửi tiền</a>
+                    <i class="fa fa-angle-right"></i>
+                    <a class="tm3"  href="su-dung-thuoc-chua-benh-viem-hong-hat-man-tinh.html">Nhận thuốc</a>
+                </div>
+                <div class="treament-content piece">
+                	<h1>Quy trình điều trị</h1>
+                    <p>
+                    	<em>Trước tiên bạn cần gửi bệnh án cho tôi, sau đó tôi sẽ xem và quyết định có điều trị được hay không, điều trị theo hướng nào, chi phí là bao nhiêu và thông báo lại cho bạn. Việc tiếp theo cần làm là bạn gửi tiền thuốc cho tôi. Sau khi làm thuốc riêng cho bạn tôi sẽ gửi qua đường bưu điện chuyển phát nhanh đến tận nhà bạn. Nếu ở Tp. Hồ Chí Minh thì có thể nhận thuốc và gửi tiền trực tiếp với con gái tôi - Cao Thị Như Thảo.<br>Có nhiều bạn vẫn còn lo lắng và hỏi tôi những câu rất khó nghe nên tôi cũng thông báo luôn: Mọi sự mất mát đều do tôi chịu trách nhiệm. <strong>Tôi không ngốc đến mức đánh đổi thành tích mười mấy năm để gây chút thiệt hại cho bạn.</strong></em>
+                    </p>
+                    <p>
+                    Thông thường một người cần uống thuốc ít nhất <strong>một liệu trình - 60 ngày</strong>. Giá mỗi liệu trình cơ bản là <strong>2 triệu đồng</strong>. Những trường hợp đặc biệt, tôi sẽ điều chỉnh thời gian uống thuốc cũng như chi phí phù hợp. Thật sự là có một số bạn than rằng "<em>mắc quá</em>"! Không sai, 2 triệu không phải số tiền nhỏ với những bạn thu nhập thấp. Nhưng nếu bạn thông minh, bạn hãy thử so sánh với những gì bạn dã từng bỏ ra cho căn bệnh này xem. Chưa nói đến chi phí chữa bệnh khổng lồ, việc nó hành hạ bạn, khiến bạn không làm việc được, tinh thần suy sụp, quan hệ với mọi người suy sụp <strong>đó mới là mất mát lớn!</strong>
+                    </p>
+                </div>
+                <!-- InstanceBeginEditable name="custom-pieces" -->
+                <div id="thanh-toan" class="treament-content piece">
+                	<h1>Hướng dẫn thanh toán</h1>
+                    <p>Hình thức giao dịch của tôi là chuyển tiền trước, nhận thuốc sau. Có một số bạn hỏi tôi sao không dùng hình thức COD - nhân viên giao hàng sẽ nhận tiền luôn. Tôi vẫn biết hình thức này, và đã từng sử dụng. Tuy nhiên... nói một cách dễ nghe là thế này: một vài người đến phút cuối vì lý do gia đình hay gì đó quyết định không dùng thuốc nữa. Thế là chưa nói chi phí gửi - trả, thùng thuốc được trả ngược về với tình trạng thê thảm, xộc xệch, móp méo, các loại thuốc tươi thì hỏng hoàn toàn và quan trọng hơn là với loại thuốc được chế theo thể trạng từng người này thì có nhận về cũng chỉ có thể đem đi bón cây thôi, không thể dùng cho người khác. Thực sự tôi rất đau lòng, vì có thể họ chưa thấy tận mắt, làm tận tay nên chưa hiểu cái khó, cái khổ khi tìm kiếm và chế biến những loại dược liệu trong bài thuốc này, cuối cùng, bao nhiêu công sức đổ xuống sông hết. Tôi làm thuốc như thế này cũng vì niềm vui và sự đam mê được hiểu bệnh, được chữa bệnh, mang lại sự khỏe khoắn và niềm vui cho mọi người chứ <strong>tôi không phải là con buôn</strong>. Vẫn mong chữa được cho thật nhiều người nhưng mà thôi thì làm được bao nhiêu hay bấy nhiêu. <strong>Mong bạn thông cảm.</strong></p>
+                    <p>
+                    	Sau khi tôi nhận điều trị và thông báo chi phí. Bạn hãy đến ngân hàng chuyển tiền vào tài khoản sau:
+                    </p>
+                    Chủ tài khoản: <strong>Đỗ Thị Ngọc Nhung</strong><br>
+                    Số tài khoản: <strong>4610 215 002 037</strong><br>
+                    Ngân hàng: <strong>Agribank, chi nhánh Tây hòa - Phú yên.</strong><br>
                 </div>
 				<!-- InstanceEndEditable -->
+				
             </div>
         </div>
 		<a id="treatment-button" href="gui-benh-an-chua-viem-hong-hat-man-tinh.html">Bắt đầu điều trị</a>

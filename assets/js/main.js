@@ -15,6 +15,13 @@ $(function(){
 	$('#toTop').click(function() {
 		$('body,html').animate({scrollTop:0},800);
 	});
+	// Setup roll to any anchor by link
+	$('.roll-to-anchor').click(function(){
+		$('html, body').animate({
+			scrollTop: $( $(this).attr('href') ).offset().top
+		}, 500);
+		return false;
+	});
 //      Setup mobile scroll left and right
     var current = 0,
         startX = '',

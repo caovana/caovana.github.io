@@ -13,12 +13,86 @@
         <link async rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link async rel="stylesheet" href="assets/css/custom-font.css">
         <!-- InstanceBeginEditable name="css" -->
+        <style type="text/css">
+			#treatment-button{
+				display:none;
+			}
+			.right-container{
+				padding: 0;	
+			}
+			.treatment-nav{
+				height: 40px;
+				border: 1px solid #795548;
+				color: #795548;	
+				background: white;
+				width: 100%;
+			}
+			.on-top{
+				position: fixed;
+				top:0;
+				left: 0;
+			}
+			.treatment-nav a{
+				  display: inline-block;
+				  vertical-align: middle;
+				  padding-bottom: 9px;
+				  /* line-height: 100%; */
+				  /* height: 100%; */
+				  font-size: 1.5rem;
+				  font-family: "VnfItcLubalinGraphRegular", serif;
+				
+			}
+			.treatment-nav i{
+				font-size: 2rem;
+				margin: 0px 6px;
+				margin-top: 8px;
+			}
+			.tm1{
+				padding-left: 10px;
+				font-weight:bold;
+			}
+			.tm3{
+				padding-right: 10px;
+			}
+			.treament-content{
+				margin: 10px;
+				padding: 10px;
+				padding-bottom: 30px;
+				text-align: justify;
+				font-size: 2rem;
+			}
+			.treament-content>h1{
+				font-size: 4rem;
+				text-align: center;
+			}
+			.treament-content>h2{
+				font-size: 2rem;
+				margin: 5px;
+			}
+			.phone-no{
+				font-weight:normal;
+				margin-left:30px;
+			}
+			
+		</style>
+        
         <!-- InstanceEndEditable -->
 <!-- JS -->
         <script src="assets/js/jquery/jquery.mobile-1.4.5.min.js"></script>
         <script src="assets/js/jquery/jquery-2.1.4.min.js"></script>
         <script src="assets/js/main.js"></script>
         <!-- InstanceBeginEditable name="js" -->
+        <script type="text/javascript">
+			$(function(){
+				$(window).scroll(function() {
+					if($(this).scrollTop() >= 50) {
+						$('.treatment-nav').addClass("on-top");
+					} else {
+						$('.treatment-nav').removeClass("on-top");
+					}
+				});
+			});
+		</script>
         <!-- InstanceEndEditable -->
 		
         
@@ -30,8 +104,6 @@
 		<meta property="og:url" content="http://viemhonghat.com">
 		<meta property="og:description" content="Tôi có thể trị bệnh viêm họng hạt mãn tính dứt điểm. Cách điều trị bệnh viêm họng hạt mãn tính thật sự không khó, thuốc chữa viêm họng hạt mãn tính không phải là không có, điều cần nhất là bạn phải kiên trì.">
 		<meta property="og:image" content="http://viemhonghat.com/assets/viemhonghat.jpg">
-        <!-- TemplateBeginEditable name="head" -->
-        <!-- TemplateEndEditable -->
         <!-- InstanceEndEditable -->
     </head>
     <body>
@@ -109,25 +181,26 @@
             </div>
             <div class="right-container">
 				<!-- InstanceBeginEditable name="right-content" -->
-            	<div class="piece">
-                	<!-- TemplateBeginEditable name="article-photo" -->
-                	<img class="thumbnail" alt="cách điều trị bệnh viêm họng hạt" src="assets/images/dieu-tri-benh-viem-hong-hat-man-tinh.jpg">
-                	<!-- TemplateEndEditable -->
-                	<!-- TemplateBeginEditable name="article-title" -->
-				  	<h1 class="ptitle">
-                		Tiêu đề bài viết
-               	  	</h1>
-                	<!-- TemplateEndEditable -->
-                    <div class="pdescript">
-                    <!-- TemplateBeginEditable name="article-content" -->
-                    	Nội dung bài viết
-                    <!-- TemplateEndEditable -->
-                    </div>
-                    <!-- TemplateBeginEditable name="article-optional-button" -->
-                    <a class="read-more" href="chua-viem-hong-hat-man-tinh.html">Xem chi tiết »</a>
-                    <!-- TemplateEndEditable -->
+                <div class="treatment-nav">
+                	<a class="tm1" href="../gui-benh-an-chua-viem-hong-hat-man-tinh.html">Gửi bệnh án</a>
+                    <i class="fa fa-angle-right"></i>
+                    <a class="tm2" href="../thanh-toan-chua-benh-viem-hong-hat-man-tinh.html">Gửi tiền</a>
+                    <i class="fa fa-angle-right"></i>
+                    <a class="tm3"  href="../su-dung-thuoc-chua-benh-viem-hong-hat-man-tinh.html">Nhận thuốc</a>
                 </div>
-			  <!-- InstanceEndEditable -->
+                <div class="treament-content piece">
+                	<h1>Quy trình điều trị</h1>
+                    <p>
+                    	<em>Trước tiên bạn cần gửi bệnh án cho tôi, sau đó tôi sẽ xem và quyết định có điều trị được hay không, điều trị theo hướng nào, chi phí là bao nhiêu và thông báo lại cho bạn. Việc tiếp theo cần làm là bạn gửi tiền thuốc cho tôi. Sau khi làm thuốc riêng cho bạn tôi sẽ gửi qua đường bưu điện chuyển phát nhanh đến tận nhà bạn. Nếu ở Tp. Hồ Chí Minh thì có thể nhận thuốc và gửi tiền trực tiếp với con gái tôi - Cao Thị Như Thảo.<br>Có nhiều bạn vẫn còn lo lắng và hỏi tôi những câu rất khó nghe nên tôi cũng thông báo luôn: Mọi sự mất mát đều do tôi chịu trách nhiệm. <strong>Tôi không ngốc đến mức đánh đổi thành tích mười mấy năm để gây chút thiệt hại cho bạn.</strong></em>
+                    </p>
+                    <p>
+                    Thông thường một người cần uống thuốc ít nhất <strong>một liệu trình - 60 ngày</strong>. Giá mỗi liệu trình cơ bản là <strong>2 triệu đồng</strong>. Những trường hợp đặc biệt, tôi sẽ điều chỉnh thời gian uống thuốc cũng như chi phí phù hợp. Thật sự là có một số bạn than rằng "<em>mắc quá</em>"! Không sai, 2 triệu không phải số tiền nhỏ với những bạn thu nhập thấp. Nhưng nếu bạn thông minh, bạn hãy thử so sánh với những gì bạn dã từng bỏ ra cho căn bệnh này xem. Chưa nói đến chi phí chữa bệnh khổng lồ, việc nó hành hạ bạn, khiến bạn không làm việc được, tinh thần suy sụp, quan hệ với mọi người suy sụp <strong>đó mới là mất mát lớn!</strong>
+                    </p>
+                </div>
+                <!-- TemplateBeginEditable name="custom-pieces" -->
+                custom-pieces
+				<!-- TemplateEndEditable -->
+				<!-- InstanceEndEditable -->
             </div>
         </div>
 		<a id="treatment-button" href="../gui-benh-an-chua-viem-hong-hat-man-tinh.html">Bắt đầu điều trị</a>

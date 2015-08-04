@@ -2,7 +2,7 @@
 <html>
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
         <!-- TemplateBeginEditable name="doctitle" -->
 		<title>Thuốc điều trị bệnh viêm họng hạt | Cao Văn A</title>
         <!-- TemplateEndEditable -->
@@ -34,7 +34,7 @@
     </head>
     <body>
         <div class="top-container">
-            <a href="../home.html"><h1 class="site-name">Trị bệnh viêm họng hạt</h1></a>
+            <a href="../index.html"><h1 class="site-name">Trị bệnh viêm họng hạt</h1></a>
             <a class="navicon" href="#"><i class="fa fa-bars"></i></a>
         </div>
         <div class="main-container turn-left">
@@ -47,7 +47,7 @@
                         ĐÔI LỜI TỰ BẠCH
                     </p>
                 </h3>
-                <img alt="Cao Văn A - Trị bệnh viêm họng hạt" src="assets/images/avatar.png">
+                <img style="max-width: 100%" alt="Cao Văn A - Trị bệnh viêm họng hạt" src="assets/images/avatar.png">
                 <p class="about">
                     Tôi là Cao Văn A, một giáo viên vùng quê nghèo Phú Yên. Một lần tình cờ tôi đã học được bài thuốc nam trị bệnh viêm họng hạt, và qua hơn mười năm vận dụng, tôi đã giúp được mấy trăm người thoát khỏi căn bệnh quái ác này. Nay tôi mang bài thuốc lên Google không ngoài mục đích nhân rộng hơn nữa cơ hội khỏi bệnh cho mọi người. Một lần nữa cảm ơn bác Google và mọi người đã ủng hộ, đồng hành cùng tôi.
                 </p>
@@ -65,27 +65,40 @@
                 </h3>
                 <div class="menu">
                     <a href="index.html">₪  Trang chủ</a>
-                    <a href="thuoc-dieu-tri-benh-viem-hong-hat.html">₪  Trị bệnh viêm họng hạt</a>
-                    <a href="chua-viem-hong-hat-man-tinh.html">₪  Quy trình điều trị</a>
-                    <a href="chua-benh-viem-hong-hat-man-tinh.html">₪  Gửi bệnh án</a>
-                    <a href="thanh-toan-chua-benh-viem-hong-hat-man-tinh.html">₪  Hướng dẫn thanh toán</a>
-                    <a href="cach-dieu-tri-benh-viem-hong-hat.html">₪  Hướng dẫn dùng thuốc</a>
+                    <a href="../thuoc-dieu-tri-benh-viem-hong-hat.html">₪  Trị bệnh viêm họng hạt</a>
+                    <a href="../gui-benh-an-chua-viem-hong-hat-man-tinh.html">₪  Quy trình điều trị</a>
+                    <a href="../mau-benh-an.html">₪  Gửi bệnh án nhanh</a>
+                    <a href="../thanh-toan-chua-benh-viem-hong-hat-man-tinh.html">₪  Hướng dẫn thanh toán</a>
+                    <a href="../su-dung-thuoc-chua-benh-viem-hong-hat-man-tinh.html">₪  Hướng dẫn dùng thuốc</a>
                     <a href="nguoi-khoi-benh-viem-hong-hat.html">₪  Người khỏi bệnh</a>
                     <a href="thu-cam-on.html">₪  Thư cảm ơn</a>
                     <a href="benh-viem-hong-hat-va-cach-dieu-tri.html">₪  Bài viết</a>
                     <a href="cau-hoi-thuong-gap.html">₪  Câu hỏi thường gặp</a>
-                    <a href="lien-he.html">₪  Liên hệ</a>
+                    <a href="../lien-he-chua-benh-viem-hong-hat-man-tinh.html">₪  Liên hệ</a>
                 </div>
                 <h3 class="separator">
                     <p>
                         LIÊN HỆ
                     </p>
                 </h3>
+                <div class="fast-contact">
+                	<strong>Cao Văn A</strong><br>
+                    <p>Địa chỉ: Phú Thuận, Hòa Mỹ Đông, Tây Hòa, Phú Yên, Việt Nam.</p>
+                    <p>Email: caovana@gmail.com</p>
+					<p>ĐT cố định: 0573 581 318 <a style="float: none;"class="call-button" href="tel:+84573581318" onclick="_gaq.push(['_trackEvent', 'Contact', 'Call Now Button', 'Phone']);"><i class="fa fa-phone"></i> Gọi</a></p>
+						ĐT di động: 0128 942 6012 <a style="float: none;" class="call-button" href="tel:+841289426012" onclick="_gaq.push(['_trackEvent', 'Contact', 'Call Now Button', 'Phone']);"><i class="fa fa-phone"></i> Gọi</a><br>
+						Cô Nhung - vợ tôi: 0164 211 9759. <a style="float: none;" class="call-button" href="tel:+841642119759" onclick="_gaq.push(['_trackEvent', 'Contact', 'Call Now Button', 'Phone']);"><i class="fa fa-phone"></i> Gọi</a><br>
+                </div>
                 <h3 class="separator">
                     <p>
                         THÔNG TIN TÀI KHOẢN
                     </p>
                 </h3>
+                <div style="font-size: 1.5rem; text-align:left">
+                	Chủ tài khoản: Đỗ Thị Ngọc Nhung<br>
+					Số tài khoản: 4610 215 002 037<br>
+					Ngân hàng: Agribank, chi nhánh Tây hòa - Phú yên.
+                </div>
                 <h3 class="separator">
                     <p>
                         BÀI VIẾT NỔI BẬT
