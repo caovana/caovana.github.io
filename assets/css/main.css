@@ -74,7 +74,7 @@ body {
     font-family: "VnfItcLubalinGraphRegular", serif;
 }
 .call-button{
-	display: inline-block;
+	display: none;
 	background: #f3f3f3;
 	border: 1px solid #dcdcdc;
 	width: 70px;
