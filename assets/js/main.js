@@ -1,9 +1,20 @@
 $(function(){
 	//      Setup mobile scroll left and right
-    $(".main-container").on("swipeleft",function(){
+	/*$(".main-container").on('swipeleft', function(e) {
+	  $(".main-container").css("left","-100%");
+	})*/
+	$(".main-container").on('movestart', function(e) {
+	  // If the movestart is heading off in an upwards or downwards
+	  // direction, prevent it so that the browser scrolls normally.
+	  if ((e.distX > e.distY && e.distX < -e.distY) ||
+		  (e.distX < e.distY && e.distX > -e.distY)) {
+		e.preventDefault();
+	  }
+	});
+    $(".main-container").on("swipeleft",function(e){
 	  $(".main-container").css("left","-100%");
 	});
-    $(".main-container").on("swiperight",function(){
+    $(".main-container").on("swiperight",function(e){
 	  $(".main-container").css("left","0");
 	});
 	
