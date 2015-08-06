@@ -4,7 +4,8 @@
     -webkit-box-sizing: border-box;
 }
 a {
-    color: #008080;;
+    color: #008080 !important;
+	text-shadow:none;
     text-decoration: none;
     transition: all ease-in-out 0.25s;
 }
