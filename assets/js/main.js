@@ -3,6 +3,14 @@ $(function(){
 	/*$(".main-container").on('swipeleft', function(e) {
 	  $(".main-container").css("left","-100%");
 	})*/
+	function turnLeft(){
+		$(".main-container").css("left","-100%");
+		$(".navicon").css({color: "wheat"});
+	};
+	function turnRight(){
+		$(".main-container").css("left","0");
+		$(".navicon").css({color: "#008080"});
+	};
 	$(".main-container").on('movestart', function(e) {
 	  // If the movestart is heading off in an upwards or downwards
 	  // direction, prevent it so that the browser scrolls normally.
@@ -12,10 +20,12 @@ $(function(){
 	  }
 	});
     $(".main-container").on("swipeleft",function(e){
-	  $(".main-container").css("left","-100%");
+	  //$(".main-container").css("left","-100%");
+	  turnLeft();
 	});
     $(".main-container").on("swiperight",function(e){
-	  $(".main-container").css("left","0");
+	  //$(".main-container").css("left","0");
+	  turnRight();
 	});
 	
 	// Setup menu button

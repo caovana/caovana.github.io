@@ -99,11 +99,13 @@ body {
     height: inherit;
     float: right;
     margin: 0;
+	color: white;
 }
 .navicon{
     height: inherit;
     float: left;
     padding-top: 5px;
+	color: wheat;
 }
 .hold{
     color: #00748d;
