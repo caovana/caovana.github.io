@@ -107,6 +107,7 @@ body {
     padding-top: 5px;
 	color: wheat;
 	cursor: pointer;
+	transition: all ease-in-out 0.25s;
 }
 .hold{
     color: #00748d;
