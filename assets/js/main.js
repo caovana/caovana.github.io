@@ -1,8 +1,5 @@
 $(function(){
 	//      Setup mobile scroll left and right
-	/*$(".main-container").on('swipeleft', function(e) {
-	  $(".main-container").css("left","-100%");
-	})*/
 	function turnLeft(){
 		$(".main-container").css("left","-100%");
 		$(".navicon").css({color: "wheat"});
@@ -20,23 +17,19 @@ $(function(){
 	  }
 	});
     $(".main-container").on("swipeleft",function(e){
-	  //$(".main-container").css("left","-100%");
 	  turnLeft();
 	});
     $(".main-container").on("swiperight",function(e){
-	  //$(".main-container").css("left","0");
 	  turnRight();
 	});
 	
 	// Setup menu button
-	
     $('.navicon').click(function(){
 		if ($('.main-container').offset().left == 0){
-			$(".main-container").css("left","-100%");
+			turnLeft();
 		}else{
-			$(".main-container").css("left","0");
+			turnRight();
 		}
-        $(this).toggleClass( "hold" );
     });
 	// Setup roll top button
 	$(window).scroll(function() {
