@@ -124,11 +124,11 @@
                 <h1 class="logo">
                     Cao Văn A
                 </h1>
-                <h3 class="separator">
+                <span class="separator">
                     <p>
                         ĐÔI LỜI TỰ BẠCH
                     </p>
-                </h3>
+                </span>
                 <img style="max-width: 100%" alt="Cao Văn A - Trị bệnh viêm họng hạt" src="assets/images/avatar.png">
                 <p class="about">
                     Tôi là Cao Văn A, một giáo viên vùng quê nghèo Phú Yên. Một lần tình cờ tôi đã học được bài thuốc nam trị bệnh viêm họng hạt, và qua hơn mười năm vận dụng, tôi đã giúp được mấy trăm người thoát khỏi căn bệnh quái ác này. Nay tôi mang bài thuốc lên Google không ngoài mục đích nhân rộng hơn nữa cơ hội khỏi bệnh cho mọi người. Một lần nữa cảm ơn bác Google và mọi người đã ủng hộ, đồng hành cùng tôi.

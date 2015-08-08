@@ -17,10 +17,11 @@ $(function(){
 	  }
 	});
     $(".main-container").on("swipeleft",function(e){
-	  turnLeft();
+	  if ($(this).offset().left == 0 && $(this).width() > $(window).width()) turnLeft();
 	});
     $(".main-container").on("swiperight",function(e){
-	  turnRight();
+	  if ($(this).offset().left == -$(this).width()/2 && $(this).width() > $(window).width())
+			turnRight();
 	});
 	
 	// Setup menu button
