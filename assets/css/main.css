@@ -178,6 +178,7 @@ body {
   margin: 8px;
 }
 .left-container > .about {
+	font-weight: normal;
     font-size: 1.5rem;
     font-family: "VnfLobster", serif;
     text-align: justify;
