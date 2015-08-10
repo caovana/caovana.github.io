@@ -1,27 +1,38 @@
 $(function(){
 	//      Setup mobile scroll left and right
+	var rootOffset = 320;
+	var swipedest = $(window);
 	function turnLeft(){
-		$(".main-container").css("left","-100%");
-		$(".navicon").css({color: "wheat"});
+		console.log("Start turn left");
+		if ($(window).width() == $(".main-container").width() && $(".main-container").offset().left <= 0){
+			$(".main-container").css("left","-"+rootOffset+"px");
+			$(".navicon").css({color: "wheat"});
+			console.log("<<<");
+		}
+		console.log("End turn left");
 	};
 	function turnRight(){
-		$(".main-container").css("left","0");
-		$(".navicon").css({color: "#008080"});
+		console.log("Start turn right");
+		if ($(window).width() == $(".main-container").width() && $(".main-container").offset().left >= -(rootOffset)){
+			$(".main-container").css("left","0");
+			$(".navicon").css({color: "#008080"});
+			console.log(">>>");
+		}
+		console.log("End turn right");
 	};
-	$(".main-container").on('movestart', function(e) {
+	swipedest.on('movestart', function(e) {
 	  // If the movestart is heading off in an upwards or downwards
 	  // direction, prevent it so that the browser scrolls normally.
-	  if ((e.distX > e.distY && e.distX < -e.distY) ||
-		  (e.distX < e.distY && e.distX > -e.distY)) {
-		e.preventDefault();
-	  }
+		if ((e.distX > e.distY && e.distX < -e.distY) ||
+			(e.distX < e.distY && e.distX > -e.distY)) {
+			e.preventDefault();
+		  }
 	});
-    $(".main-container").on("swipeleft",function(e){
-	  if ($(this).offset().left == 0 && $(this).width() > $(window).width()) turnLeft();
+    swipedest.on("swipeleft",function(e){
+		turnLeft();
 	});
-    $(".main-container").on("swiperight",function(e){
-	  if ($(this).offset().left == -$(this).width()/2 && $(this).width() > $(window).width())
-			turnRight();
+    swipedest.on("swiperight",function(e){
+		turnRight();
 	});
 	
 	// Setup menu button

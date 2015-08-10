@@ -38,7 +38,7 @@
 	    	threshold: 0.2,
 	    	// Faster fingers can travel shorter distances to be considered
 	    	// swipes. 'sensitivity' controls how much. Bigger is shorter.
-	    	sensitivity: 6
+	    	sensitivity: 1
 	    };
 
 	function moveend(e) {
