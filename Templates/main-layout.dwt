@@ -57,7 +57,7 @@
                 </span>
                 <img style="max-width: 100%" alt="Cao Văn A - Trị bệnh viêm họng hạt" src="assets/images/avatar.png">
                 <h2 class="about">
-                    Tôi là Cao Văn A, một giáo viên vùng quê nghèo Phú Yên. Một lần tình cờ tôi đã học được bài thuốc nam trị bệnh viêm họng hạt, và qua hơn mười năm vận dụng, tôi đã giúp được mấy trăm người thoát khỏi căn bệnh quái ác này. Nay tôi mang bài thuốc lên Google không ngoài mục đích nhân rộng hơn nữa cơ hội khỏi bệnh cho mọi người. Một lần nữa cảm ơn bác Google và mọi người đã ủng hộ, đồng hành cùng tôi.
+                    Tôi là người nắm giữ bài thuốc trị bệnh viêm họng hạt dứt điểm. Một lần tình cờ tôi đã học được bài thuốc nam trị bệnh viêm họng hạt từ người bạn dân tộc thiểu số, và qua hơn mười năm vận dụng, tôi đã giúp được mấy trăm người thoát khỏi căn bệnh quái ác này. Nay tôi mang bài thuốc lên Google không ngoài mục đích nhân rộng hơn nữa cơ hội khỏi bệnh cho mọi người. Một lần nữa cảm ơn bác Google và mọi người đã ủng hộ, đồng hành cùng tôi.
                 </h2>
                 <span>
                     <a target="_blank" href="https://facebook.com/viemhonghat"><i class="fa fa-facebook-square"></i></a>
@@ -84,34 +84,39 @@
                     <a href="cau-hoi-thuong-gap.html">₪  Câu hỏi thường gặp</a>
                     <a href="../lien-he-chua-benh-viem-hong-hat-man-tinh.html">₪  Liên hệ</a>
                 </div>
-                <span class="separator">
+                <div class="separator">
                     <p>
                         LIÊN HỆ
                     </p>
-                </span>
-                <div class="fast-contact">
-                	<strong>Cao Văn A</strong><br>
-                    <p>Địa chỉ: Phú Thuận, Hòa Mỹ Đông, Tây Hòa, Phú Yên, Việt Nam.</p>
-                    <p>Email: caovana@gmail.com</p>
-					<p>ĐT cố định: 0573 581 318 <a style="float: none;"class="call-button" href="tel:+84573581318" onclick="_gaq.push(['_trackEvent', 'Contact', 'Call Now Button', 'Phone']);"><i class="fa fa-phone"></i> Gọi</a></p>
-						ĐT di động: 0128 942 6012 <a style="float: none;" class="call-button" href="tel:+841289426012" onclick="_gaq.push(['_trackEvent', 'Contact', 'Call Now Button', 'Phone']);"><i class="fa fa-phone"></i> Gọi</a><br>
-						Cô Nhung - vợ tôi: 0164 211 9759. <a style="float: none;" class="call-button" href="tel:+841642119759" onclick="_gaq.push(['_trackEvent', 'Contact', 'Call Now Button', 'Phone']);"><i class="fa fa-phone"></i> Gọi</a><br>
                 </div>
-                <span class="separator">
+                <table class="fast-contact">
+                	<tr><td colspan="3"><strong>Cao Văn A</strong></td></tr>
+                	<tr><td colspan="3"><em>Phú Thuận, Hòa Mỹ Đông, Tây Hòa, Phú Yên, Việt Nam.</em></td></tr>
+                    <tr><td style="width: 80px;">Email:</td><td style="font-size: 1.7rem;"><a href="mailto:caovana@gmail.com">caovana@gmail.com</a></td><td></td></tr>
+                    <tr><td>Điện thoại:</td><td>0128 942 6012</td><td><a style="float: none;" class="call-button" href="tel:+841289426012" onclick="_gaq.push(['_trackEvent', 'Contact', 'Call Now Button', 'Phone']);"><i class="fa fa-phone"></i> Gọi</a></td></tr>
+                    <tr><td>ĐT cố định:</td><td>0573 581 318</td><td><a style="float: none;"class="call-button" href="tel:+84573581318" onclick="_gaq.push(['_trackEvent', 'Contact', 'Call Now Button', 'Phone']);"><i class="fa fa-phone"></i> Gọi</a></td></tr>
+                    <tr><td>Cô Nhung:</td><td>0164 211 9759</td><td><a style="float: none;" class="call-button" href="tel:+841642119759" onclick="_gaq.push(['_trackEvent', 'Contact', 'Call Now Button', 'Phone']);"><i class="fa fa-phone"></i> Gọi</a></td></tr>
+                </table>
+                <div class="separator">
                     <p>
                         THÔNG TIN TÀI KHOẢN
                     </p>
-                </span>
-                <div style="font-size: 1.5rem; text-align:left">
-                	Chủ tài khoản: Đỗ Thị Ngọc Nhung<br>
-					Số tài khoản: 4610 215 002 037<br>
-					Ngân hàng: Agribank, chi nhánh Tây hòa - Phú yên.
                 </div>
-                <span class="separator">
+                <div class="account-info">
+                	<table>
+                      <tbody>
+                        <tr><td width="98px">Chủ tài khoản:</td><td>Đỗ Thị Ngọc Nhung</td></tr>
+                        <tr><td>Số tài khoản:</td><td>4610 215 002 037</td></tr>
+                        <tr><td>Ngân hàng:</td><td>Agribank</td></tr>
+                        <tr><td></td><td>Chi nhánh Tây hòa - Phú yên.</td></tr>
+                      </tbody>
+                    </table>
+                </div>
+                <div class="separator">
                     <p>
                         BÀI VIẾT NỔI BẬT
                     </p>
-                </span>
+                </div>
                 <div class="sticker">
                 <a href="../rau-sam-chua-benh-viem-hong-hat.html">
                 	<img class="sticker-thumbnail" src="../assets/images/thumbnail/1.jpg">

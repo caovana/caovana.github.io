@@ -16,6 +16,8 @@ html, body {
     padding: 0;
     font-family: Verdana, serif;
     font-size: 10px;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 body {
     background: #f5f5f5;
@@ -73,7 +75,7 @@ body {
     font-family: "VnfItcLubalinGraphRegular", serif;
 }
 .call-button{
-	display: inline-block;
+	display: none;
 	background: #f3f3f3;
 	border: 1px solid #dcdcdc;
 	width: 70px;
@@ -162,12 +164,13 @@ body {
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
-}
-.separator>p{
-    color: rgb(56, 56, 56);
+	font-family: "VnfItcLubalinGraphRegular", serif;
+    color: rgb(112, 112, 112)
     font-weight: 100;
     font-size: 1.2rem;
     text-align: center;
+}
+.separator>p{
 }
 .separator>p::before{
     content: '';
@@ -203,8 +206,14 @@ body {
     margin: 5px 0;
 }
 .fast-contact{
-	font-size: 1.5rem;
+	font-size: 1.6rem;
 	text-align: left;
+	font-family: "VnfBodoniRegular", serif;
+}
+.account-info{
+	font-size: 1.6rem;
+	text-align: left;
+	font-family: "VnfBodoniRegular", serif;
 }
 .sticker{
 	border-bottom: 1px solid #f0f0f0;
@@ -233,7 +242,7 @@ body {
 	margin: 5px 0 0 0;
 	font-family: "VnfItcLubalinGraphRegular", serif;
 	font-size: 1.3rem;
-	color: #a1887f;
+	color: #BBB2AE;
 }
 /*== Right container */
 .right-container{

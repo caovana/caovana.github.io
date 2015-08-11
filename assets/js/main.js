@@ -1,5 +1,10 @@
 $(function(){
-	//      Setup mobile scroll left and right
+	//Detect mobile device base on TouchEvent 
+	function isMobile() {
+	  try{ document.createEvent("TouchEvent"); return true; }
+	  catch(e){ return false; }
+	}
+	// Setup swipe left and right event
 	var rootOffset = 320;
 	var swipedest = $(window);
 	function turnLeft(){
@@ -20,21 +25,22 @@ $(function(){
 		}
 		console.log("End turn right");
 	};
-	swipedest.on('movestart', function(e) {
-	  // If the movestart is heading off in an upwards or downwards
-	  // direction, prevent it so that the browser scrolls normally.
-		if ((e.distX > e.distY && e.distX < -e.distY) ||
-			(e.distX < e.distY && e.distX > -e.distY)) {
-			e.preventDefault();
-		  }
-	});
-    swipedest.on("swipeleft",function(e){
-		turnLeft();
-	});
-    swipedest.on("swiperight",function(e){
-		turnRight();
-	});
-	
+	if(isMobile()){
+		swipedest.on('movestart', function(e) {
+		  // If the movestart is heading off in an upwards or downwards
+		  // direction, prevent it so that the browser scrolls normally.
+			if ((e.distX > e.distY && e.distX < -e.distY) ||
+				(e.distX < e.distY && e.distX > -e.distY)) {
+				e.preventDefault();
+			  }
+		});
+		swipedest.on("swipeleft",function(e){
+			turnLeft();
+		});
+		swipedest.on("swiperight",function(e){
+			turnRight();
+		});
+	}
 	// Setup menu button
     $('.navicon').click(function(){
 		if ($('.main-container').offset().left == 0){
@@ -43,6 +49,10 @@ $(function(){
 			turnRight();
 		}
     });
+	//Setup Call button
+	if(isMobile()){
+	 $(".call-button").css({display: "inline-block"});
+	}else{}
 	// Setup roll top button
 	$(window).scroll(function() {
 		if($(this).scrollTop() >= $(this).height()) {
