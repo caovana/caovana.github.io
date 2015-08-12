@@ -1,5 +1,5 @@
 <!doctype html>
-<html><!-- InstanceBegin template="/Templates/main-layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<html><!-- InstanceBegin template="/Templates/treatment-step.dwt" codeOutsideHTMLIsLocked="false" -->
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -51,10 +51,10 @@
 			}
 			.tm1{
 				padding-left: 10px;
-				font-weight:bold;
 			}
 			.tm3{
 				padding-right: 10px;
+				font-weight:bold;
 			}
 			.treament-content{
 				margin: 10px;
@@ -80,9 +80,9 @@
         
         <!-- InstanceEndEditable -->
 		<!-- JS -->
-		<script src="../assets/js/jquery/jquery-1.9.1.min.js"></script>
-        <script src="../assets/js/jquery/swipe/jquery.event.move.js"></script>
-        <script src="../assets/js/jquery/swipe/jquery.event.swipe.js"></script>
+		<script src="../js/jquery/jquery-1.9.1.min.js"></script>
+        <script src="../js/jquery/swipe/jquery.event.move.js"></script>
+        <script src="../js/jquery/swipe/jquery.event.swipe.js"></script>
         <script src="assets/js/main.js"></script>
         <!-- InstanceBeginEditable name="js" -->
         <script type="text/javascript">
@@ -94,6 +94,9 @@
 						$('.treatment-nav').removeClass("on-top");
 					}
 				});
+				$('html, body').animate({
+					scrollTop: $("#nhan-thuoc").offset().top-40
+				}, 500);
 			});
 		</script>
         <!-- InstanceEndEditable -->
@@ -112,7 +115,7 @@
     </head>
     <body>
         <div class="top-container">
-            <a href="../index.html"><h1 class="site-name">Trị bệnh viêm họng hạt</h1></a>
+            <a href="../../index.html"><h1 class="site-name">Trị bệnh viêm họng hạt</h1></a>
             <span class="navicon"><i class="fa fa-bars"></i></span>
         </div>
         <div class="wrapper">
@@ -144,16 +147,16 @@
                 </span>
                 <div class="menu">
                     <a href="index.html">₪  Trang chủ</a>
-                    <a href="../thuoc-dieu-tri-benh-viem-hong-hat.html">₪  Trị bệnh viêm họng hạt</a>
-                    <a href="../gui-benh-an-chua-viem-hong-hat-man-tinh.html">₪  Quy trình điều trị</a>
-                    <a href="../gui-benh-an.html">₪  Gửi bệnh án nhanh</a>
-                    <a href="../thanh-toan-chua-benh-viem-hong-hat-man-tinh.html">₪  Hướng dẫn thanh toán</a>
-                    <a href="../su-dung-thuoc-chua-benh-viem-hong-hat-man-tinh.html">₪  Hướng dẫn dùng thuốc</a>
-                    <a href="../danh-sach-nguoi-khoi-benh-viem-hong-hat.html">₪  Người khỏi bệnh</a>
-                    <a href="../thu-cam-on-chua-benh-viem-hong-hat.html">₪  Thư cảm ơn</a>
+                    <a href="../../thuoc-dieu-tri-benh-viem-hong-hat.html">₪  Trị bệnh viêm họng hạt</a>
+                    <a href="../../gui-benh-an-chua-viem-hong-hat-man-tinh.html">₪  Quy trình điều trị</a>
+                    <a href="../../gui-benh-an.html">₪  Gửi bệnh án nhanh</a>
+                    <a href="../../thanh-toan-chua-benh-viem-hong-hat-man-tinh.html">₪  Hướng dẫn thanh toán</a>
+                    <a href="../../su-dung-thuoc-chua-benh-viem-hong-hat-man-tinh.html">₪  Hướng dẫn dùng thuốc</a>
+                    <a href="../../danh-sach-nguoi-khoi-benh-viem-hong-hat.html">₪  Người khỏi bệnh</a>
+                    <a href="../../thu-cam-on-chua-benh-viem-hong-hat.html">₪  Thư cảm ơn</a>
                     <a href="benh-viem-hong-hat-va-cach-dieu-tri.html">₪  Bài viết</a>
                     <a href="cau-hoi-thuong-gap.html">₪  Câu hỏi thường gặp</a>
-                    <a href="../lien-he-chua-benh-viem-hong-hat-man-tinh.html">₪  Liên hệ</a>
+                    <a href="../../lien-he-chua-benh-viem-hong-hat-man-tinh.html">₪  Liên hệ</a>
                 </div>
                 <div class="separator">
                     <p>
@@ -189,8 +192,8 @@
                     </p>
                 </div>
                 <div class="sticker">
-                <a href="../rau-sam-chua-benh-viem-hong-hat.html">
-                	<img class="sticker-thumbnail" src="../assets/images/thumbnail/1.jpg">
+                <a href="../../rau-sam-chua-benh-viem-hong-hat.html">
+                	<img class="sticker-thumbnail" src="../images/thumbnail/1.jpg">
                     <div class="sticker-description">
                         <h3>Rau sam, loài cỏ dại chứa nhiều vitamin và chất <strong>chống ung thư</strong></h3>
                         <p>Ngày 10/08/2015</p>
@@ -200,13 +203,13 @@
                 
             </div>
             <div class="right-container">
-				<!-- InstanceBeginEditable name="right-content" -->
+				
                 <div class="treatment-nav">
-                	<a class="tm1" href="../gui-benh-an-chua-viem-hong-hat-man-tinh.html">Gửi bệnh án</a>
+                	<a class="tm1" href="../../gui-benh-an-chua-viem-hong-hat-man-tinh.html">Gửi bệnh án</a>
                     <i class="fa fa-angle-right"></i>
-                    <a class="tm2" href="../thanh-toan-chua-benh-viem-hong-hat-man-tinh.html">Gửi tiền</a>
+                    <a class="tm2" href="../../thanh-toan-chua-benh-viem-hong-hat-man-tinh.html">Gửi tiền</a>
                     <i class="fa fa-angle-right"></i>
-                    <a class="tm3"  href="../su-dung-thuoc-chua-benh-viem-hong-hat-man-tinh.html">Nhận thuốc</a>
+                    <a class="tm3"  href="../../su-dung-thuoc-chua-benh-viem-hong-hat-man-tinh.html">Nhận thuốc</a>
                 </div>
                 <div class="treament-content piece">
                 	<h1>Quy trình điều trị</h1>
@@ -217,14 +220,23 @@
                     Thông thường một người cần uống thuốc ít nhất <strong>một liệu trình - 60 ngày</strong>. Giá mỗi liệu trình cơ bản là <strong>2 triệu đồng</strong>. Những trường hợp đặc biệt, tôi sẽ điều chỉnh thời gian uống thuốc cũng như chi phí phù hợp. Thật sự là có một số bạn than rằng "<em>mắc quá</em>"! Không sai, 2 triệu không phải số tiền nhỏ với những bạn thu nhập thấp. Nhưng nếu bạn thông minh, bạn hãy thử so sánh với những gì bạn dã từng bỏ ra cho căn bệnh này xem. Chưa nói đến chi phí chữa bệnh khổng lồ, việc nó hành hạ bạn, khiến bạn không làm việc được, tinh thần suy sụp, quan hệ với mọi người suy sụp <strong>đó mới là mất mát lớn!</strong>
                     </p>
                 </div>
-                <!-- TemplateBeginEditable name="custom-pieces" -->
-                custom-pieces
-				<!-- TemplateEndEditable -->
+                <!-- InstanceBeginEditable name="custom-pieces" -->
+                <div id="nhan-thuoc" class="treament-content piece">
+                	<h1>Hướng dẫn nhận và sử dụng thuốc</h1>
+                    <p>
+                    	<em>Sau khi nhận được tiền bạn chuyển, tôi sẽ làm thuốc riêng cho bạn và gửi qua đường bưu điên. Thường thì mất khoảng <strong>3-5 ngày</strong> là bạn nhận được thuốc. Nhân viên bưu điện sẽ liên lạc và giao hàng cho bạn. Mọi chi phí tôi đã thanh toán, <strong>bạn không cần phải trả thêm bất kỳ khoản tiền nào cho bưu cục</strong>.</em>
+                    </p>
+                    <p><strong>Khi nhận được thuốc bạn nên gọi điện báo cho tôi biết là đã nhận được.</strong></p>
+                    <p>
+                    	<em>Trong mỗi thùng thuốc đều có hướng dẫn sử dụng chi tiết cho từng loại. Nếu bạn không tìm thấy hoặc làm mất cần xem lại có thể xem và tải file hướng dẫn sử dụng tại đây hoặc gọi điện cho vợ tôi để cô ấy hướng dẫn.</em>
+                    </p>
+                </div>
 				<!-- InstanceEndEditable -->
+				
             </div>
         </div>
         </div>
-		<a id="treatment-button" href="../gui-benh-an-chua-viem-hong-hat-man-tinh.html">Bắt đầu điều trị</a>
+		<a id="treatment-button" href="../../gui-benh-an-chua-viem-hong-hat-man-tinh.html">Bắt đầu điều trị</a>
     	<div id="toTop"></div>
     </body>
 <!-- InstanceEnd --></html>

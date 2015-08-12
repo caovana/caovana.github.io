@@ -6,7 +6,7 @@
        	<!-- InstanceBeginEditable name="desciption" -->
         <!-- InstanceEndEditable -->
         <!-- InstanceBeginEditable name="doctitle" -->
-		<title>Danh sách khỏi bệnh viêm họng hạt mãn tính | Trị bệnh viêm họng hạt</title>
+		<title>Thuốc điều trị bệnh viêm họng hạt | Cao Văn A</title>
         <!-- InstanceEndEditable -->
 		<link rel="shortcut icon" href="favicon.ico">
         <!-- CSS -->
@@ -17,9 +17,9 @@
         <!-- InstanceBeginEditable name="css" -->
         <!-- InstanceEndEditable -->
 		<!-- JS -->
-		<script src="assets/js/jquery/jquery-1.9.1.min.js"></script>
-        <script src="assets/js/jquery/swipe/jquery.event.move.js"></script>
-        <script src="assets/js/jquery/swipe/jquery.event.swipe.js"></script>
+		<script src="../../js/jquery/jquery-1.9.1.min.js"></script>
+        <script src="../../js/jquery/swipe/jquery.event.move.js"></script>
+        <script src="../../js/jquery/swipe/jquery.event.swipe.js"></script>
         <script src="assets/js/main.js"></script>
         <!-- InstanceBeginEditable name="js" -->
         <!-- InstanceEndEditable -->
@@ -28,17 +28,19 @@
         <!-- InstanceEndEditable -->
         <!-- InstanceBeginEditable name="head" -->
 		<!-- Facebook Open Graph -->
-		<meta property="og:title" content="Danh sách khỏi bệnh viêm họng hạt mãn tính || Viemhonghat.com">
-		<meta property="og:site_name" content="viemhonghat.com">
+        <!-- TemplateBeginEditable name="FOG" -->
+		<meta property="og:title" content="Thuốc điều trị bệnh viêm họng hạt || <strong><em>Cao Văn A</em></strong>"> 
+		<meta property="og:site_name" content="viemhonghat">
 		<meta property="og:type" content="article">
-		<meta property="og:url" content="http://viemhonghat.com/danh-sach-nguoi-khoi-benh-viem-hong-hat.html">
-		<meta property="og:description" content="Đã có hàng trăm người khỏi bệnh viêm họng nhờ bài thuốc của tôi, bạn hãy cố gắn lên, đây là một cuộc chiếng lâu dài, điều cần nhất là bạn phải kiên trì.">
-		<meta property="og:image" content="http://viemhonghat.com/assets/images/nguoi-khoi-benh-viem-hong-hat.jpg">
+		<meta property="og:url" content="http://viemhonghat.com">
+		<meta property="og:description" content="Tôi có thể trị bệnh viêm họng hạt mãn tính dứt điểm. Cách điều trị bệnh viêm họng hạt mãn tính thật sự không khó, thuốc chữa viêm họng hạt mãn tính không phải là không có, điều cần nhất là bạn phải kiên trì.">
+		<meta property="og:image" content="http://viemhonghat.com/assets/viemhonghat.jpg">
+        <!-- TemplateEndEditable -->
         <!-- InstanceEndEditable -->
     </head>
     <body>
         <div class="top-container">
-            <a href="index.html"><h1 class="site-name">Trị bệnh viêm họng hạt</h1></a>
+            <a href="../../../index.html"><h1 class="site-name">Trị bệnh viêm họng hạt</h1></a>
             <span class="navicon"><i class="fa fa-bars"></i></span>
         </div>
         <div class="wrapper">
@@ -70,16 +72,16 @@
                 </span>
                 <div class="menu">
                     <a href="index.html">₪  Trang chủ</a>
-                    <a href="thuoc-dieu-tri-benh-viem-hong-hat.html">₪  Trị bệnh viêm họng hạt</a>
-                    <a href="gui-benh-an-chua-viem-hong-hat-man-tinh.html">₪  Quy trình điều trị</a>
-                    <a href="gui-benh-an.html">₪  Gửi bệnh án nhanh</a>
-                    <a href="thanh-toan-chua-benh-viem-hong-hat-man-tinh.html">₪  Hướng dẫn thanh toán</a>
-                    <a href="su-dung-thuoc-chua-benh-viem-hong-hat-man-tinh.html">₪  Hướng dẫn dùng thuốc</a>
-                    <a href="danh-sach-nguoi-khoi-benh-viem-hong-hat.html">₪  Người khỏi bệnh</a>
-                    <a href="thu-cam-on-chua-benh-viem-hong-hat.html">₪  Thư cảm ơn</a>
+                    <a href="../../../thuoc-dieu-tri-benh-viem-hong-hat.html">₪  Trị bệnh viêm họng hạt</a>
+                    <a href="../../../gui-benh-an-chua-viem-hong-hat-man-tinh.html">₪  Quy trình điều trị</a>
+                    <a href="../../../gui-benh-an.html">₪  Gửi bệnh án nhanh</a>
+                    <a href="../../../thanh-toan-chua-benh-viem-hong-hat-man-tinh.html">₪  Hướng dẫn thanh toán</a>
+                    <a href="../../../su-dung-thuoc-chua-benh-viem-hong-hat-man-tinh.html">₪  Hướng dẫn dùng thuốc</a>
+                    <a href="../../../danh-sach-nguoi-khoi-benh-viem-hong-hat.html">₪  Người khỏi bệnh</a>
+                    <a href="../../../thu-cam-on-chua-benh-viem-hong-hat.html">₪  Thư cảm ơn</a>
                     <a href="benh-viem-hong-hat-va-cach-dieu-tri.html">₪  Bài viết</a>
                     <a href="cau-hoi-thuong-gap.html">₪  Câu hỏi thường gặp</a>
-                    <a href="lien-he-chua-benh-viem-hong-hat-man-tinh.html">₪  Liên hệ</a>
+                    <a href="../../../lien-he-chua-benh-viem-hong-hat-man-tinh.html">₪  Liên hệ</a>
                 </div>
                 <div class="separator">
                     <p>
@@ -115,8 +117,8 @@
                     </p>
                 </div>
                 <div class="sticker">
-                <a href="rau-sam-chua-benh-viem-hong-hat.html">
-                	<img class="sticker-thumbnail" src="assets/images/thumbnail/1.jpg">
+                <a href="../../../rau-sam-chua-benh-viem-hong-hat.html">
+                	<img class="sticker-thumbnail" src="../../images/thumbnail/1.jpg">
                     <div class="sticker-description">
                         <h3>Rau sam, loài cỏ dại chứa nhiều vitamin và chất <strong>chống ung thư</strong></h3>
                         <p>Ngày 10/08/2015</p>
@@ -127,40 +129,29 @@
             </div>
             <div class="right-container">
 				<!-- InstanceBeginEditable name="right-content" -->
-                <div id="progressBar" class="jquery-ui-like"><div style="width: 360px;">800/1000 Người khỏi bệnh</div></div>
-                <style type="text/css">
-					#progressBar {
-						width: 100%;
-						height: 22px;
-						border-radius: 4px;
-						background: #FFF;
-						border: 1px solid #AAA;
-						overflow: hidden;
-					}
-					
-					#progressBar div {
-						height: 100%;
-						color: #fff;
-						text-align: right;
-						font-size: 12px;
-						line-height: 22px;
-						width: 0;
-						background-image: url(assets/images/progress.gif);
-						border-right: 1px solid #AAA;
-					}
-				</style>
-                <script type="text/javascript">
-					function progress(percent, $element) {
-						var progressBarWidth = percent * $element.width() / 100;
-						$element.find('div').animate({ width: progressBarWidth }, 500).html(percent + "% ");
-					}
-					progress(80, $('#progressBar'));
-				</script>
-				<!-- InstanceEndEditable -->
+            	<div class="piece">
+                	<!-- TemplateBeginEditable name="article-photo" -->
+                	<img class="thumbnail" alt="cách điều trị bệnh viêm họng hạt" src="assets/images/dieu-tri-benh-viem-hong-hat-man-tinh.jpg">
+                	<!-- TemplateEndEditable -->
+                	<!-- TemplateBeginEditable name="article-title" -->
+				  	<h1 class="ptitle">
+                		Tiêu đề bài viết
+               	  	</h1>
+                	<!-- TemplateEndEditable -->
+                    <div class="pdescript">
+                    <!-- TemplateBeginEditable name="article-content" -->
+                    	Nội dung bài viết
+                    <!-- TemplateEndEditable -->
+                    </div>
+                    <!-- TemplateBeginEditable name="article-optional-button" -->
+                    <a class="read-more" href="chua-viem-hong-hat-man-tinh.html">Xem chi tiết »</a>
+                    <!-- TemplateEndEditable -->
+                </div>
+			  <!-- InstanceEndEditable -->
             </div>
         </div>
         </div>
-		<a id="treatment-button" href="gui-benh-an-chua-viem-hong-hat-man-tinh.html">Bắt đầu điều trị</a>
+		<a id="treatment-button" href="../../../gui-benh-an-chua-viem-hong-hat-man-tinh.html">Bắt đầu điều trị</a>
     	<div id="toTop"></div>
     </body>
 <!-- InstanceEnd --></html>
