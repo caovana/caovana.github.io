@@ -26,7 +26,7 @@
 				height: 40px;
 				border: 1px solid #795548;
 				color: #795548;	
-				background: white;
+				background: rgb(250, 243, 243); 
 				width: 100%;
 			}
 			.on-top{
