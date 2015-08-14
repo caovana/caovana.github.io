@@ -29,3 +29,9 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'VnfChampionScriptPro';
+  src: url('../fonts/vnf-champion-script-pro.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
