@@ -15,6 +15,10 @@
         <link async rel="stylesheet" href="assets/css/custom-font.css">
         
         <!-- InstanceBeginEditable name="css" -->
+        <link rel="stylesheet" type="text/css" href="assets/css/patient-list.css">
+        <style type="text/css">
+			
+		</style>
         <!-- InstanceEndEditable -->
 		<!-- JS -->
 		<script src="assets/js/jquery/jquery-1.9.1.min.js"></script>
@@ -22,6 +26,10 @@
         <script src="assets/js/jquery/swipe/jquery.event.swipe.js"></script>
         <script src="assets/js/main.js"></script>
         <!-- InstanceBeginEditable name="js" -->
+        <!--<script src="assets/js/angular.min.js"></script>
+        <script src="assets/js/angularfire.min.js"></script>-->
+        <script src="assets/js/firebase.js"></script>
+        <script src="assets/js/firebase-app.js"></script>
         <!-- InstanceEndEditable -->
 		<!-- Facebook Open Graph -->
         <!-- InstanceBeginEditable name="FOG" -->
@@ -127,35 +135,14 @@
             </div>
             <div class="right-container">
 				<!-- InstanceBeginEditable name="right-content" -->
-                <div id="progressBar" class="jquery-ui-like"><div style="width: 360px;">800/1000 Người khỏi bệnh</div></div>
-                <style type="text/css">
-					#progressBar {
-						width: 100%;
-						height: 22px;
-						border-radius: 4px;
-						background: #FFF;
-						border: 1px solid #AAA;
-						overflow: hidden;
-					}
-					
-					#progressBar div {
-						height: 100%;
-						color: #fff;
-						text-align: right;
-						font-size: 12px;
-						line-height: 22px;
-						width: 0;
-						background-image: url(assets/images/progress.gif);
-						border-right: 1px solid #AAA;
-					}
-				</style>
-                <script type="text/javascript">
-					function progress(percent, $element) {
-						var progressBarWidth = percent * $element.width() / 100;
-						$element.find('div').animate({ width: progressBarWidth }, 500).html(percent + "% ");
-					}
-					progress(80, $('#progressBar'));
-				</script>
+                <img class="loader" src="assets/images/loader370.gif">
+                <div hidden class="piece">
+                	<div class="plt">
+                    </div>
+                    <div style="font-size: 1.7rem; padding: 10px;">
+                    	<em>Và nhiều bệnh nhân khác không tiện công khai tên tuổi.</em>
+                    </div>
+                </div>
 				<!-- InstanceEndEditable -->
             </div>
         </div>

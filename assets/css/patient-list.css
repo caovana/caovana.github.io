@@ -1,0 +1,48 @@
+/*Loader*/
+.right-container{
+	text-align: center;
+}
+.loader {
+	margin-top: 40%;
+	display: inline-block;
+}
+/*Main*/
+.plt{
+	font-size: 1.6rem;
+}
+.plr{
+	padding: 10px;
+	border-bottom: 1px solid #DCDCDC;
+	background-color: #F8F8F8;
+	transition: all ease-in-out 0.25s;
+}
+.plractive{
+	background: #B6DFE0;
+}
+.plr:hover{
+	background: #B6DFE0;
+}
+.plr:nth-child(odd) {
+    /*background: #B6DFE0;*/
+}
+
+.plr:nth-child(even) {
+    /*background: #8dc4e4;*/
+}
+.plc{
+	text-align:left;
+}
+.name{
+	font-size: 2rem;
+	text-align:left;
+	font-weight: bold;	
+}
+.pinfo{
+	font-style: italic;
+}
+.plmore{
+	background-color: #DEEFF9;
+	border-radius: 4px;
+	padding: 5px;
+	
+}
