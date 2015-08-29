@@ -19,14 +19,14 @@ app.controller("loginCtrl", ["$scope", "$rootScope", "$firebaseAuth", function($
 		  } else {
 			$rootScope.authData = authData;
 			console.log("Authenticated successfully with payload:", authData);
-			$(location).attr('hrootRef','index.html');
+			$(location).attr('href','index.html');
 		  }
 		});
 	}
 	$scope.faAuth = function(){
 		$scope.authObj.$authWithOAuthPopup("facebook").then(function(authData) {
 		  console.log("Logged in as:", authData.uid);
-			$(location).attr('hrootRef','index.html');
+			$(location).attr('href','index.html');
 		}).catch(function(error) {
 		  console.error("Authentication failed:", error);
 		});
