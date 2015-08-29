@@ -9,8 +9,8 @@ if (authData) {
 
 app.controller("loginCtrl", ["$scope", "$rootScope", "$firebaseAuth", function($scope, $rootScope, $firebaseAuth) {
 	$scope.authObj = $firebaseAuth(rootRef);
-	$scope.signIn = function(){
-		$scope.authObj.authWithPassword({
+	$scope.paAuth = function(){
+		rootRef.authWithPassword({
 		  email    : $scope.email,
 		  password : $scope.password
 		}, function(error, authData) {
