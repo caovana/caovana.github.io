@@ -26,6 +26,7 @@ app.controller("loginCtrl", ["$scope", "$rootScope", "$firebaseAuth", function($
 	$scope.faAuth = function(){
 		$scope.authObj.$authWithOAuthPopup("facebook").then(function(authData) {
 		  console.log("Logged in as:", authData.uid);
+			$(location).attr('hrootRef','index.html');
 		}).catch(function(error) {
 		  console.error("Authentication failed:", error);
 		});
