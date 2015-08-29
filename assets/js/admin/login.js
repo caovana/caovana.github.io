@@ -40,7 +40,7 @@ function handleAuthResponse(promise, route) {
 	});
 }
 app.controller("loginCtrl", ["$scope", "$rootScope", "$firebaseAuth", function($scope, $rootScope, $firebaseObject, $firebaseAuth) {
-	$scope.authObj = $firebaseAuth(rootRef);
+	//$scope.authObj = $firebaseAuth(rootRef);
 	$scope.signIn = function(){
 		rootRef.authWithPassword({
 		  email    : $scope.email,
