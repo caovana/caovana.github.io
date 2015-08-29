@@ -55,7 +55,7 @@ app.controller("loginCtrl", ["$scope", "$rootScope", "$firebaseAuth", function($
 		});
 	}
 	$scope.faAuth = function(){
-		rootRef.$authWithOAuthRedirect("facebook").then(function(authData) {
+		$firebaseAuth.$authWithOAuthRedirect("facebook").then(function(authData) {
 		  console.log("Logged in as:", authData.uid);
 		}).catch(function(error) {
 		  console.error("Authentication failed:", error);
