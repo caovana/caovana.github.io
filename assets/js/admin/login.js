@@ -10,6 +10,7 @@ if (authData) {
 app.controller("loginCtrl", ["$scope", "$rootScope", "$firebaseAuth", function($scope, $rootScope, $firebaseAuth) {
 	$scope.authObj = $firebaseAuth(rootRef);
 	$scope.paAuth = function(){
+        console.log("Signing in with account: "+$scope.email+", "+$scope.password);
 		rootRef.authWithPassword({
 		  email    : $scope.email,
 		  password : $scope.password
@@ -17,7 +18,7 @@ app.controller("loginCtrl", ["$scope", "$rootScope", "$firebaseAuth", function($
 		  if (error) {
 			console.log("Login Failed!", error);
 		  } else {
-			$rootScope.authData = authData;
+			$authData = authData;
 			console.log("Authenticated successfully with payload:", authData);
 			$(location).attr('href','index.html');
 		  }
