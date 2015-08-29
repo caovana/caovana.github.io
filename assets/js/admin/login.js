@@ -31,16 +31,12 @@ app.controller("loginCtrl", ["$scope", "$rootScope", "$firebaseAuth", function($
 		  console.error("Authentication failed:", error);
 		});
 	}
-//	rootRef.onAuth(authDataCallback);
-//	rootRef.offAuth(authDataCallback);	
+	rootRef.onAuth(authDataCallback);
+	rootRef.offAuth(authDataCallback);	
 	function authDataCallback(authData) {
-			console.log("User " + authData.uid + " is logged in with " + authData.provider);
 		if (authData) {
 			console.log("User " + authData.uid + " is logged in with " + authData.provider);
-			$(location).attr('hrootRef','index.html');
-		} else {
-//			console.log("User is logged out");
-//			$(location).attr('hrootRef','login.html');
+			$(location).attr('href','index.html');
 		}
 	}
 }]);
