@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <!-- TemplateBeginEditable name="desciption" -->
+    <!-- TemplateEndEditable -->
+	<!-- TemplateBeginEditable name="doctitle" -->
+    <title>Quản lý nhà thuốc | Cao Văn A</title>
+    <!-- TemplateEndEditable -->
+    <link rel="shortcut icon" href="../favicon.ico">
+    <!-- CSS -->
+    <link async rel="stylesheet" href="../assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
+    <!-- TemplateBeginEditable name="css" -->
+    <!-- TemplateEndEditable -->
+    <!-- JS -->
+    <!-- AngularJS -->
+    <script src="../assets/js/jquery/jquery-1.9.1.min.js"></script>
+    <script src="../assets/js/angular.min.js"></script>
+	<script src="../assets/js/firebase.js"></script>
+	<script src="../assets/js/angularfire.min.js"></script>
+    <script src="../assets/css/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!-- TemplateBeginEditable name="js" -->
+    <!-- TemplateEndEditable -->
+    <!-- Custom head -->
+    <!-- TemplateBeginEditable name="head" -->
+    <!-- TemplateEndEditable -->
+</head>
+<body>
+	<header>
+    	
+    </header>
+    <main>
+		<!-- TemplateBeginEditable name="EditRegion6" -->EditRegion6<!-- TemplateEndEditable -->
+    	<div id="toTop"></div>	
+    </main>
+    <footer>
+    
+    </footer>
+</body>
+</html>

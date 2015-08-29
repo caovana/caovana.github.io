@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Đăng nhập | Chương trình quản lý nhà thuốc</title>
+<link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/admin/login.css">
+<script src="../assets/js/jquery/jquery-1.9.1.min.js"></script>
+<script src="../assets/js/angular.min.js"></script>
+<script src="../assets/js/firebase.js"></script>
+<script src="../assets/js/angularfire.min.js"></script>
+
+<script src="../assets/js/admin/login.js"></script>
+</head>
+<body ng-app="vhh" ng-controller="loginCtrl">
+<div id="loginform">
+<div id="facebook" ng-click="faAuth()"><i class="fa fa-facebook"></i><div id="connect">Connect with Facebook</div></div>
+<div id="mainlogin">
+<div id="or">or</div>
+<h1>Log in with awesome new thing</h1>
+<form action="#">
+<input type="text" placeholder="username or email" value="" required="" ng-model="email">
+<input type="password" placeholder="password" value="" required="" ng-model="password">
+<button ng-click="signIn()" type="submit"><i class="fa fa-arrow-right"></i></button>
+</form>
+<div id="note"><a href="#">Forgot your password?</a></div>
+</div>
+</div>
+</body>
+</html>

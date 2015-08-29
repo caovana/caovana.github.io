@@ -1,0 +1,52 @@
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/admin-main-layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <!-- InstanceBeginEditable name="desciption" -->
+    <!-- InstanceEndEditable -->
+	<!-- InstanceBeginEditable name="doctitle" -->
+    <title>Thuốc điều trị bệnh viêm họng hạt | Cao Văn A</title>
+    <!-- InstanceEndEditable -->
+    <link rel="shortcut icon" href="../favicon.ico">
+    <!-- CSS -->
+    <link async rel="stylesheet" href="../assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
+    <!-- InstanceBeginEditable name="css" -->
+    <!-- InstanceEndEditable -->
+    <!-- JS -->
+    <!-- AngularJS -->
+    <script src="../assets/js/jquery/jquery-1.9.1.min.js"></script>
+    <script src="../assets/js/angular.min.js"></script>
+	<script src="../assets/js/firebase.js"></script>
+	<script src="../assets/js/angularfire.min.js"></script>
+    <script src="../assets/css/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!-- InstanceBeginEditable name="js" -->
+    <script src="../assets/js/admin-main.js"></script>
+    <!-- InstanceEndEditable -->
+    <!-- Custom head -->
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+	<header>
+    	
+    </header>
+    <main>
+		<!-- InstanceBeginEditable name="EditRegion6" -->
+        	<center><h1>Admin Page</h1></center>
+            <div class="main-loading" style="text-align:center; color:#248578;"><img src="../assets/images/loader480.gif" style="display:inline-block;margin-top:40%;"><br><br><em>Đang tải dữ liệu ....</em></div>
+            <div class="patient-list" hidden ng-app="vhh" ng-controller="plistCtrl">
+            	<!--<input ng-model="message"/>-->
+                <div ng-click="signOut()"><strong>Sign Out</strong></div>
+    			<pre>{{data | json}}</pre>
+            </div>
+		<!-- InstanceEndEditable -->
+    	<div id="toTop"></div>	
+    </main>
+    <footer>
+    
+    </footer>
+</body>
+<!-- InstanceEnd --></html>

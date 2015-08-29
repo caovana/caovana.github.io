@@ -1,0 +1,79 @@
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/admin-main-layout.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <!-- InstanceBeginEditable name="desciption" -->
+    <!-- InstanceEndEditable -->
+	<!-- InstanceBeginEditable name="doctitle" -->
+    <title>Thuốc điều trị bệnh viêm họng hạt | Cao Văn A</title>
+    <!-- InstanceEndEditable -->
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <!-- CSS -->
+    <link async rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
+    <!-- InstanceBeginEditable name="css" -->
+    <link rel="stylesheet" type="text/css" href="../css/admin/login.css">
+    <!-- InstanceEndEditable -->
+    <!-- JS -->
+    <!-- AngularJS -->
+    <script src="../js/jquery/jquery-1.9.1.min.js"></script>
+    <script src="../js/angular.min.js"></script>
+	<script src="../js/firebase.js"></script>
+	<script src="../js/angularfire.min.js"></script>
+    <script src="../css/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <!-- InstanceBeginEditable name="js" -->
+    <script src="../js/admin/login.js"></script>
+    <!-- InstanceEndEditable -->
+    <!-- Custom head -->
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+</head>
+<body>
+	<header>
+    	
+    </header>
+    <main>
+		<!-- InstanceBeginEditable name="EditRegion6" -->
+		<div ng-app="vhh">
+			<!--<form id="auth" class="navbar-form navbar-right collapse navbar-collapse" >
+                <fieldset ng-hide="	auth">
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="email" ng-model="email" />
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" placeholder="password" ng-model="password" />
+                  </div>
+                  <button type="submit" class="btn btn-default" ng-click="signIn()">Sign In / Sign Up</button>
+                </fieldset>
+                <span ng-show="auth">
+                  {{auth.password.email}}
+                  <button type="submit" class="btn btn-default" ng-click="auth.$logout()">Sign Out</button>
+                </span>
+          	</form>-->
+            <div id="loginform" ng-controller="loginCtrl">
+                <div id="facebook"><i class="fa fa-facebook"></i><div id="connect">Connect with Facebook</div></div>
+                <div id="mainlogin">
+                <div id="or">or</div>
+                <h1>Log in with awesome new thing</h1>
+                <form action="#">
+                <input type="text" placeholder="email" ng-model="email" required>
+                <input type="password" placeholder="password" ng-model="password" required>
+                <button type="submit" ng-click="signIn()"><i class="fa fa-arrow-right"></i></button>
+                </form>
+                <div id="note"><a href="#">Forgot your password?</a></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+			
+		</script>
+		<!-- InstanceEndEditable -->
+    	<div id="toTop"></div>	
+    </main>
+    <footer>
+    
+    </footer>
+</body>
+<!-- InstanceEnd --></html>
