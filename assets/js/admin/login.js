@@ -1,11 +1,11 @@
 var app = angular.module("vhh", ["firebase"]);
 var rootRef = 	new Firebase('https://viemhonghat.firebaseio.com/');
-//var authData = rootRef.getAuth();
-//if (authData) {
-//  console.log("User " + authData.uid + " is logged in with " + authData.provider);
-//} else {
-//  console.log("User is logged out");
-//}
+var authData = rootRef.getAuth();
+if (authData) {
+	$(location).attr('href','index.html');
+} else {
+  console.log("User is logged out");
+}
 
 app.controller("loginCtrl", ["$scope", "$rootScope", "$firebaseAuth", function($scope, $rootScope, $firebaseAuth) {
 	$scope.authObj = $firebaseAuth(rootRef);
@@ -30,12 +30,5 @@ app.controller("loginCtrl", ["$scope", "$rootScope", "$firebaseAuth", function($
 		}).catch(function(error) {
 		  console.error("Authentication failed:", error);
 		});
-	}
-	rootRef.onAuth(authDataCallback);
-	rootRef.offAuth(authDataCallback);	
-	function authDataCallback(authData) {
-		if (authData) {
-			$(location).attr('href','index.html');
-		}
 	}
 }]);

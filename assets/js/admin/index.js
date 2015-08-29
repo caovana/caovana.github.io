@@ -1,13 +1,9 @@
 var app = angular.module("vhh", ["firebase"]);
 var rootRef = new Firebase("https://viemhonghat.firebaseio.com/si");
-rootRef.onAuth(authDataCallback);
-rootRef.offAuth(authDataCallback);
-function authDataCallback(authData) {
-	if (authData) {
-		console.log("User " + authData.uid + " is logged in with " + authData.provider);
-	} else {
-		$(location).attr('href','login.html');
-	}
+if (authData) {
+	console.log("User " + authData.uid + " is logged in with " + authData.provider);
+} else {
+  $(location).attr('href','login.html');
 }
 app.controller("plistCtrl", function($scope, $firebaseObject, $firebaseAuth) {
 	// download the data into a local object
