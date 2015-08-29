@@ -6,41 +6,9 @@ var rootRef = 	new Firebase('https://viemhonghat.firebaseio.com/');
 //} else {
 //  console.log("User is logged out");
 //}
-var thirdPartyLogin = function (provider) {
-	var deferred = $.Deferred();
 
-	rootRef.authWithOAuthPopup(provider, function (err, user) {
-		if (err) {
-			deferred.reject(err);
-		}
-
-		if (user) {
-			deferred.resolve(user);
-		}
-	});
-
-	return deferred.promise();
-};
-function handleAuthResponse(promise, route) {
-    $.when(promise)
-		.then(function (authData) {
-		console.log("Login Success!");
-		// route
-		//routeTo(route);
-
-	}, function (err) {
-		console.log(err);
-		// pop up error
-		//showAlert({
-//			title: err.code,
-//			detail: err.message,
-//			className: 'alert-danger'
-//		});
-
-	});
-}
 app.controller("loginCtrl", ["$scope", "$rootScope", "$firebaseAuth", function($scope, $rootScope, $firebaseObject, $firebaseAuth) {
-	//$scope.authObj = $firebaseAuth(rootRef);
+	$scope.authObj = $firebaseAuth(rootRef);
 	$scope.signIn = function(){
 		rootRef.authWithPassword({
 		  email    : $scope.email,
@@ -56,7 +24,7 @@ app.controller("loginCtrl", ["$scope", "$rootScope", "$firebaseAuth", function($
 		});
 	}
 	$scope.faAuth = function(){
-		rootRef.$authWithOAuthRedirect("facebook").then(function(authData) {
+		$scope.authObj.$authWithOAuthRedirect("facebook").then(function(authData) {
 		  console.log("Logged in as:", authData.uid);
 		}).catch(function(error) {
 		  console.error("Authentication failed:", error);
