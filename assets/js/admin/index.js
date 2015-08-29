@@ -25,7 +25,7 @@ app.controller("plistCtrl", function($scope, $firebaseObject, $firebaseAuth) {
 		});
 	$scope.signOut = function(){
 		console.log('Going to Sign Out..');
-		ref.unauth();
+		rootRef.unauth();
 		$(location).attr('href','login.html');
 	}
 });
