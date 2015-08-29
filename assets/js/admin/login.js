@@ -40,6 +40,7 @@ function handleAuthResponse(promise, route) {
 	});
 }
 app.controller("loginCtrl", ["$scope", "$rootScope", "$firebaseAuth", function($scope, $rootScope, $firebaseObject, $firebaseAuth) {
+	$scope.authObj = $firebaseAuth(rootRef);
 	$scope.signIn = function(){
 		rootRef.authWithPassword({
 		  email    : $scope.email,
@@ -55,7 +56,7 @@ app.controller("loginCtrl", ["$scope", "$rootScope", "$firebaseAuth", function($
 		});
 	}
 	$scope.faAuth = function(){
-		$firebaseAuth.$authWithOAuthRedirect("facebook").then(function(authData) {
+		$scope.authObj.$authWithOAuthRedirect("facebook").then(function(authData) {
 		  console.log("Logged in as:", authData.uid);
 		}).catch(function(error) {
 		  console.error("Authentication failed:", error);
