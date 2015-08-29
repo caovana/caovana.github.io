@@ -1,5 +1,6 @@
 var app = angular.module("vhh", ["firebase"]);
 var rootRef = new Firebase("https://viemhonghat.firebaseio.com/si");
+var authData = rootRef.getAuth();
 if (authData) {
 	console.log("User " + authData.uid + " is logged in with " + authData.provider);
 } else {
