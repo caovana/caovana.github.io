@@ -8,7 +8,7 @@ var rootRef = 	new Firebase('https://viemhonghat.firebaseio.com/');
 //}
 
 app.controller("loginCtrl", ["$scope", "$rootScope", "$firebaseAuth", function($scope, $rootScope, $firebaseAuth) {
-	$scope.authObj = $firebaseAuth(new Firebase('https://viemhonghat.firebaseio.com/'));
+	$scope.authObj = $firebaseAuth(rootRef);
 	$scope.signIn = function(){
 		rootRef.authWithPassword({
 		  email    : $scope.email,
