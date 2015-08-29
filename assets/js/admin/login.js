@@ -7,8 +7,8 @@ var rootRef = 	new Firebase('https://viemhonghat.firebaseio.com/');
 //  console.log("User is logged out");
 //}
 
-app.controller("loginCtrl", ["$scope", "$rootScope", "$firebaseAuth", function($scope, $rootScope, $firebaseObject, $firebaseAuth) {
-	$scope.authObj = $firebaseAuth(rootRef);
+app.controller("loginCtrl", ["$scope", "$rootScope", "$firebaseAuth", function($scope, $rootScope, $firebaseAuth) {
+	$scope.authObj = $firebaseAuth(new Firebase('https://viemhonghat.firebaseio.com/'));
 	$scope.signIn = function(){
 		rootRef.authWithPassword({
 		  email    : $scope.email,
