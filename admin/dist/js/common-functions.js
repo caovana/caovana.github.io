@@ -8,7 +8,10 @@ function checkAuthStatus(dest){
         rootRef.child('users').child(authData.uid).child('roles').on('value', function(snapshot){
             var data = snapshot.val();
             if(data){
-                if (data.administrator != true) goLogin();
+                if (data.administrator !== true) {
+                    alert("Tài khoản này không có quyền truy cập!\nVui lòng sử dụng tài khoản khác.");
+                    goLogin();
+                }
                 else if(dest){window.location.href=dest;}
             }else{goLogin();}
         }, function(e){

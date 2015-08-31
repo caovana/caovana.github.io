@@ -82,7 +82,7 @@
     <script type="text/javascript" src="/assets/js/angular.min.js"></script>
     <script type="text/javascript" src="/assets/js/firebase.js"></script>
     <script type="text/javascript" src="/assets/js/angularfire.min.js"></script>
-    <script type="text/javascript" src="/admin/dist/js/custom-functions.js"></script>
+    <script type="text/javascript" src="/admin/dist/js/common-functions.js"></script>
     <script language="javascript">
         rootRef.unauth();
         var app = angular.module("vhh", ["firebase"]);
@@ -105,7 +105,7 @@
             $scope.OAuth = function(provider){
                 $firebaseAuth(rootRef).$authWithOAuthPopup(provider).then(function(authData) {
                     console.log("Logged in as:", authData.uid);
-                    goIndex();
+                    checkAuthStatus("/admin/pages/index.html");
                 }).catch(function(error) {
                     console.error("Authentication failed:", error);
                 });
