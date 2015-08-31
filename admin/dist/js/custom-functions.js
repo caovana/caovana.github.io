@@ -5,10 +5,10 @@ function goIndex(){window.location.href = "/admin/pages/index.html";}
 function goLogin(){window.location.href = "/admin/pages/login.html";}
 function checkAuthStatus(dest){
     if (authData) {
-        rootRef.child('users').child(authData.uid).on('value', function(snapshot){
+        rootRef.child('users').child(authData.uid).child('roles').on('value', function(snapshot){
             var data = snapshot.val();
             if(data){
-                if (data.role != 1) goLogin();
+                if (data.administrator != true) goLogin();
                 else if(dest){window.location.href=dest;}
             }else{goLogin();}
         }, function(e){

@@ -38,7 +38,7 @@
 
     </head>
 
-    <body>
+    <body ng-app="vhh">
 
         <div id="wrapper">
 
@@ -265,7 +265,7 @@
                 </ul>
                 <!-- /.navbar-top-links -->
 
-                <div class="navbar-default sidebar" role="navigation">
+                <div class="navbar-default sidebar" role="navigation" ng-controller="sidebarCtrl">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <li class="sidebar-search">
@@ -283,9 +283,7 @@
                                 <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Bảng điều khiển</a>
                             </li>
                             <li>
-                                <
-                                
-                                href="tables.html"><i class="fa fa-table fa-fw"></i> Bệnh nhân</a>
+                                <a ng-click="showFrame('Bệnh nhân')"><i class="fa fa-table fa-fw"></i> Bệnh nhân</a>
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Biểu đồ<span class="fa arrow"></span></a>
@@ -943,6 +941,38 @@
         <script type="text/javascript" src="/admin/dist/js/custom-functions.js"></script>
         <script language="javascript">
             checkAuthStatus();
+			var app = angular.module("vhh", ["firebase"]);
+			app.controller("loginCtrl", ["$scope", "$rootScope", function($scope, $rootScope) {
+				$scope.authObj = $firebaseAuth(rootRef);
+				$scope.paAuth = function(){
+				console.log("Signing in with account: "+$scope.email+", "+$scope.password);
+				rootRef.authWithPassword({
+				email    : $scope.email,
+				password : $scope.password
+				}, function(error, authData) {
+				if (error) {
+				console.log("Login Failed!", error);
+				} else {
+				$authData = authData;
+				console.log("Authenticated successfully with payload:", authData);
+				$(location).attr('href','index.html');
+				}
+				});
+				}
+				$scope.faAuth = function(){
+				$scope.authObj.$authWithOAuthPopup("facebook").then(function(authData) {
+				console.log("Logged in as:", authData.uid);
+				$(location).attr('href','index.html');
+				}).catch(function(error) {
+				console.error("Authentication failed:", error);
+				});
+				}
+			}]);
+
+			//sidebarCtrl
+			function showFrame(frame){
+				console.log(frame);
+			}
         </script>
 
     </body>
