@@ -1,0 +1,199 @@
+<div id="focusFrame" ui-view></div>
+<div class="search-panel">
+	<div class="search-logo">
+		<img class="static" src="assets/img/stable_preloader_bill.png">
+		<img class="dynamic" src="assets/img/preloader_bill.gif" hidden>
+	</div>
+	<div class="input-group search-box" >
+		<form ng-submit="">
+			<input ng-model="query" type="text" class="form-control search-textbox" placeholder="Tìm kiếm..." ng-init="query = ''">
+		</form>
+	</div>
+	<a ui-sref=".add" class="add-patient-button">
+		<i class="fa fa-plus"></i>
+	</a>
+</div>
+<div class="result-panel">
+	<ul class="patient-list">
+		<li ng-repeat="patient in patients | searchPatient: query">
+			<div class="gender-icon">
+				<i ng-show="patient.gender" class="fa fa-mars"></i>
+				<i ng-hide="patient.gender" class="fa fa-venus"></i>
+			</div>
+			<div class="pInfo" ng-click="patientClick($event)">
+				<div class="pTitle">
+					<a href="#/benh-nhan/{{patient.$id}}" class="pName">{{patient.name}}</a>
+					<span ng-show="patient.address | addressFocus" class="focus-info">
+						<span>{{patient.address | addressFocus}}</span>
+					</span>
+					<span ng-show="patient.circulator.address | addressFocus" ng-hide="(patient.address | addressFocus) || !(patient.circulator.address | addressFocus)" class="focus-info">
+						<span>{{patient.circulator.address | addressFocus}}</span>
+					</span>
+				</div>
+				<div class="pSummary">
+					<div class="importantInfo">
+						<span class="phoneNo" ng-show="patient.phoneNo">
+							<i class="fa fa-phone-square"></i>
+							<a href="tel:{{patient.phoneNo}}" onclick="_gaq.push(['_trackEvent', 'Contact', 'Call Now Button', 'Phone']);">{{patient.phoneNo}}</a>
+						</span>
+						<span class="phoneNo" ng-show="patient.circulator.phoneNo" ng-hide="patient.phoneNo || !patient.circulator.phoneNo">
+							<i class="fa fa-phone-square"></i>
+							<a href="tel:{{patient.circulator.phoneNo}}" onclick="_gaq.push(['_trackEvent', 'Contact', 'Call Now Button', 'Phone']);">{{patient.circulator.phoneNo}}</a>
+						</span>
+						<span class="email" ng-show="patient.email">
+							<i class="fa fa-envelope-o"></i>
+							<a href="mailto:{{patient.email}}">{{patient.email}}</a>
+						</span>
+						<span class="email" ng-show="patient.circulator.email" ng-hide="patient.email || !patient.circulator.email">
+							<i class="fa fa-envelope-o"></i>
+							<a href="mailto:{{patient.circulator.email}}">{{patient.circulator.email}}</a>
+						</span>
+						<span ng-show="patient.credit.balance">
+							<i class="fa fa-money"></i>
+							<a ui-sref="patient.currency({ id: patient.$id })">{{patient.credit.balance | currency}}</a>
+						</span>
+					</div>
+					
+					<p class="summary ellipsis" ng-show="patient.summary"  ng-click="expand($event)" ng-mouseleave="collapse($event)">{{patient.summary}}</p>
+					
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>
+<style type="text/css">
+	#focusFrame{
+		box-sizing: border-box;
+		display: none;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1001;
+		padding: 30px;
+		background-color: rgba(168, 185, 175, 0.69);
+	}
+	.search-panel{
+		width: 100%;
+		height: 60px;
+		padding-top: 10px;
+		padding-left: 50px;
+		padding-right: 60px;
+		background: #f1f1f1;
+		border-bottom: 1px solid #E0E0E0;
+	}
+	.search-logo{
+		float: left;
+		height: 38px;
+		width: 38px;
+		margin-left: -45px;
+		display: inline-block;
+	}
+	.search-logo img{
+		height: 100%;
+		width: 100%;
+	}
+	.add-patient-button{
+		display: inline-block;
+		float: right;
+		margin-right: -50px;
+		width: 38px;
+		height: 38px;
+		font-size: 20px;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 38px;
+		border-radius: 2px;
+		background: #BAD8D1;
+		color: #5C6C79;
+	}
+	.search-box{
+		float: left;
+		width: 100%;
+		display: inline-block;
+	}
+	.search-box input{
+		height: 38px;
+	}
+	.result-panel{
+		margin-top: 30px;
+		padding-left: 20px;
+	}
+	.patient-list{
+		display: block;
+		border-left: 1px dotted #ccc;
+	}
+	.gender-icon{
+		margin-left: -25px;
+		float: left;
+		padding-top: 2px;
+	}
+	.gender-icon > .fa-mars{
+		color: #337ab7;
+	}
+	.gender-icon > .fa-venus{
+		color: #BB558D;;
+	}
+
+
+	.patient-list{
+		list-style-type:none;
+		margin: 0;
+		padding: 0;
+	}
+	.patient-list>li{
+		margin-bottom: 20px;
+		padding: 0 10px
+	}
+	.patient-list>li:hover{
+		background: #E2EFEF;
+	}
+	.patient-list>li:nth-child(odd){
+	}
+	.patient-list>li:nth-child(even){
+	}
+	.pInfo{
+		width: 100%;
+		font-family: arial, sans-serif;
+		color: #1E4694;
+		font-size: 18px;
+		font-style: italic;
+		text-decoration: none;
+		display: block;
+		width: 100%;
+	}
+	.pName{
+		color: #195182;
+	}
+	.focus-info{
+		font-size: 11px;
+		color: #868686;
+	}
+	.pTitle{
+		margin: 0;
+	}
+	.importantInfo{
+		line-height: 14px;
+		font-size: 14px;
+		color: #337347;
+	}
+	.importantInfo a{
+		color: inherit;
+	}
+
+	.importantInfo>span{
+		margin-right: 5px
+	}
+	.pSummary .summary{
+		font-size: 14px;
+		color: #4C4C4C;
+		margin: 0;
+		text-align: justify;
+	}
+	.ellipsis{
+		white-space: nowrap;
+		overflow:hidden;
+		text-overflow: ellipsis;
+	}
+</style>

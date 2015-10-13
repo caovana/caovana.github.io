@@ -1,0 +1,66 @@
+
+	<div class="add-wrapper panel panel-default">
+		<div class="panel-heading">
+			<button class="btn btn-default pull-right cancel-btn" ng-click="exit()">Đóng</button>
+			<span style="font-size: 24px;">Tài khoản</span>
+		</div>
+		
+		<div class="panel-container">
+			Số dư: 
+			<h1>
+				{{patient.credit.balance | currency}}
+				<span class="naptien" hidden>
+					<span ng-show="sum"> + </span>
+					<span ng-hide="sum"> - </span>
+					<input ng-model="credit" placehoder="Số tiền cần nạp" ng-change="fixCurrency(credit)" ng-keypress="$event.which === 13 && tinhtien()">
+					<button class="btn btn-warning tinhtien-btn" ng-click="tinhtien()" ng-disabled="!credit">OK</button>
+				</span>
+			</h1>
+			<button class="btn btn-danger ruttien-btn" ng-click="showRutTien()">Rút tiền</button>
+
+			<button class="btn btn-success naptien-btn" ng-click="showNapTien()">Nạp tiền</button>
+			<div ng-show="creditHisList">
+				<h3>Lịch sử</h3>
+				<div ng-repeat="his in creditHisList">
+					<div class="hisLine">
+						<span>{{his.time | sysTime}} - [{{his.credit | currency}}] - {{his.reason}}</span>
+						<!-- <span ng-click="deleteEx(ex)" class="cls-btn" style="margin-top: -3px;width: 20px;text-align: center;vertical-align: middle;line-height: 20px;border-radius: 10px; color:#d9534f; font-size: 20px;" hidden><i class="fa fa-times-circle"></i></span> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<style type="text/css">
+	#npForm{
+		height: 100%;
+		width: 100%;
+	}
+	.add-wrapper{
+		height: 100%;
+		width: 100%;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+	.add-wrapper > .panel-heading{
+		border-top-left-radius: inherit;
+		border-top-right-radius: inherit;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+	.add-wrapper > .panel-heading button{
+		margin-left: 5px;
+	}
+	.panel-container{
+		height: -moz-calc(100% - 49px);
+		height: -webkit-calc(100% - 49px);
+		height: -o-calc(100% - 49px);
+		height: calc(100% - 49px);
+		padding: 50px;
+		padding-top: 30px;
+		font-size: 15px;
+		overflow-y: auto;
+	}
+</style>
+<script type="text/javascript">
+</script>

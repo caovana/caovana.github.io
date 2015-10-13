@@ -1,28 +1,126 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <!-- <meta http-equiv="refresh" content="0;url=pages/index.html"> -->
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>Quản lý nhà thuốc</title>
-    </head>
-    <body>
-        <header>
-        </header>
-        <main>
-            <div class="main-loading" style="text-align:center; color:#248578;"><img src="../assets/images/loader480.gif" style="display:inline-block;margin-top:40%;"><br><br><em>Đang kiểm tra thông tin đăng nhập ....</em></div>
-        </main>
-        <footer>
-        </footer>
-        <script type="text/javascript" src="/assets/js/angular.min.js"></script>
-        <script type="text/javascript" src="/assets/js/firebase.js"></script>
-        <script type="text/javascript" src="/assets/js/angularfire.min.js"></script>
-        <script type="text/javascript" src="/admin/dist/js/common-functions.js"></script>
-        <script language="javascript">
-            checkAuthStatus("/admin/pages/index.html");
-        </script>
-    </body>
+<html ng-app="vhh">
+<head >
+	<link async href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link async href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="assets/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="assets/js/angular.min.js"></script>
+	<script type="text/javascript" src="assets/js/firebase.js"></script>
+	<script type="text/javascript" src="assets/js/angularfire.min.js"></script>
+	<script type="text/javascript" src="assets/js/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/index.js"></script>
+	<title ng-bind="pageTitle || 'Quản lý nhà thuốc'"></title>
+</head>
+<body>
+	<div ui-view></div>
+	<div class="nlog"></div>
+	<div class="nalert"></div>
+	<!-- <div class="nconfirm" hidden>
+		<div class="c">
+			<div class="t">
+				
+			</div>
+			<button class="close-btn">X</button>
+			<div class="btn-container">
+				<button class="btn btn-lg btn-success accept-btn">Đồng ý</button>
+				<button class="btn btn-lg cancel-btn">Bỏ qua</button>
+			</div>
+			<div class="cfrm-message-container">
+			</div>
+		</div>
+	</div> -->
+	<style type="text/css">
+	.nlog{
+		width: 320px;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		z-index: 1002;
+		text-align: right;
+		margin-right: 5px;
+		color: #2F5A53;
+		text-shadow: 0px 0px 5px #DA8E32;
+	}
+	/*.nconfirm{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 9999;
+		padding: 30px;
+		background-color: rgba(168, 185, 175, 0.69);
+	}
+	.nconfirm .c{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translatey(-50%);
+		width: 50%;
+		min-width: 300px;
+		max-width: 500px;
+		height: 50%;
+		min-height: 200px;
+		max-height: 300px;
+		background-color: white;
+		border-radius: 10px;
+		padding: 70px 30px 80px 30px;
+		overflow:auto;
+	}
+	.nconfirm .c .t{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 40px;
+		line-height: 40px;
+		vertical-align: middle;
+		background-color: #E28C8C;
+		border-top-left-radius: inherit;
+		border-top-right-radius: inherit;
+		padding-left: 10px;
+	}
+	.nconfirm .c .close-btn{
+		top: 0;
+		right: 0;
+		position: absolute;
+		border-top-right-radius: inherit;
+		border: 0;
+		border-bottom-left-radius: inherit;
+		width: 50px;
+		height: 40px;
+	}
+	.nconfirm .c .btn-container{
+		width: 100%;
+		height: 40px;
+		position: absolute;
+		bottom: 20px;
+		left: 0;
+		text-align: center;
+	}
+	.nconfirm .c .btn-container button{
+		height: 100%;
+		display: inline-block;
+		border: 0;
+	}
+	.cfrm-message-container{
+		height: 100%;
+		width: 100%;
+		overflow: auto;
+	}
+	.accept-btn{
+		background-color: #eee;
+	}
+	.cancel-btn{
+		background-color: #eee;
+	}*/
+	.nalert{
+		display: none;
+		width: 100%;
+		height: 100%;
+		background-color: #ddd;
+	}
+	</style>
+</body>
 </html>

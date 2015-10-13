@@ -1,0 +1,503 @@
+<form id="npForm" name="npForm" ng-submit="savePatient(npForm.$valid)" novalidate>
+	<div class="add-wrapper panel panel-default">
+		<div class="panel-heading">
+			<!-- <button class="close" ng-click="closeFrame()">&times;</button> -->
+			<button class="btn btn-success pull-right save-btn" type="submit" ng-show="isAdding" ng-disabled="!npForm.$valid">Lưu</button>
+			<button class="btn btn-success pull-right save-btn" type="submit" ng-hide="isAdding" ng-disabled="!npForm.$valid">Cập nhật</button>
+			<button class="btn btn-warning pull-right" ng-click="goExportFrame()" ng-hide="isAdding">Xuất thuốc</button>
+			<button class="btn btn-danger pull-right delete-btn" ng-click="deleteCurrentPatient()" ng-hide="isAdding">Xóa</button>
+			<button class="btn btn-default pull-right cancel-btn" ng-click="exit()" ng-show="isAdding">Hủy</button>
+			<button class="btn btn-default pull-right cancel-btn" ng-click="exit()" ng-hide="isAdding">Đóng</button>
+			<span style="font-size: 24px;">{{panelTitle}}</span>
+		</div>
+		<div class="panel-container">
+
+			<div>
+				<div class="credit-balance">
+					<span ng-show="isAdding">
+						<a ><i class="fa fa-money"></i></a>
+						<input class="no-border" ng-model="balance" ng-change="fixCurrency(balance)" ng-init="balance='0.000'">
+					</span>
+					<span ng-hide="isAdding">
+						<a ui-sref="patient.currency({ id: patient.$id })"><i class="fa fa-money"></i></a>
+						{{patient.credit.balance | currency}}
+					</span>
+					
+					<!-- <input class="no-border" ng-model="balance" ng-change="fixCurrency(balance)" ng-init="balance='0.000'"> -->
+				</div>
+				<div style="float:right;text-align: right; font-style: italic">
+					<input class="no-border" style="width: 1.2em" ng-model='hours'> giờ<input class="no-border" style="width: 1.2em" ng-model='minutes'> - 
+					Ngày<input tabindex="0" class="no-border" style="width: 1.2em" ng-model='date'>, 
+					tháng<input tabindex="0" class="no-border" style="width: 1.2em" ng-model='month'>, 
+					năm<input tabindex="0" class="no-border" style="width: 2.2em" ng-model='year'>
+					<input type="hidden" ng-model="patient.createTime">
+				</div>
+			</div>
+			<center class="ap-header orange">BỆNH ÁN VIÊM HỌNG HẠT</center>
+			<p class="ap-h1 orange">NGƯỜI LIÊN LẠC</p>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<label>Họ và tên</label><input tabindex="0" class="no-border" ng-model='patient.circulator.name' placeholder="[Tên người liên lạc]">
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3">
+					<label>Năm sinh</label><input tabindex="0" class="no-border smalli" ng-model='patient.circulator.birthYear' placeholder="[Năm sinh]" ng-blur="editcBirthYear()">
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3">
+					<label>Giới tính<input type="checkbox" tabindex="0" class="no-border smalli" ng-model='patient.circulator.gender' hidden></label>
+					<span ng-show="patient.circulator.gender">Nam</span>
+					<span ng-hide="patient.circulator.gender">Nữ</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<label>Số điện thoại</label><input tabindex="0" class="no-border" ng-model='patient.circulator.phoneNo' placeholder="[Số điện thoại]">
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<label>Địa chỉ email</label><input tabindex="0" class="no-border" ng-model='patient.circulator.email' placeholder="[Địa chỉ email]">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<label>Nghề nghiệp</label><input tabindex="0" class="no-border" ng-model='patient.circulator.job' placeholder="[Nghề nghiệp]">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<label>Địa chỉ</label><input tabindex="0" class="no-border" ng-model='patient.circulator.address' placeholder="[Địa chỉ]" style="width: 100%; margin-left: 0">
+				</div>
+			</div>
+			<p class="ap-h1 orange">NGƯỜI BỆNH</p>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<label>Họ và tên</label><input tabindex="0" class="no-border" ng-model='patient.name' placeholder="[Tên người bệnh]" required>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3">
+					<label>Năm sinh</label><input tabindex="0" class="no-border smalli" ng-model='patient.birthYear' placeholder="[Năm sinh]" ng-blur="editBirthYear()">
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3">
+					<label>Giới tính<input type="checkbox" tabindex="0" class="no-border smalli" ng-model='patient.gender' hidden></label>
+					<span ng-show="patient.gender">Nam</span>
+					<span ng-hide="patient.gender">Nữ</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<label>Số điện thoại</label><input tabindex="0" class="no-border" ng-model='patient.phoneNo' placeholder="[Số điện thoại]">
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<label>Địa chỉ email</label><input tabindex="0" class="no-border" ng-model='patient.email' placeholder="[Địa chỉ email]">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<label>Nghề nghiệp</label><input tabindex="0" class="no-border" ng-model='patient.job' placeholder="[Nghề nghiệp]">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<label>Địa chỉ</label><input tabindex="0" class="no-border" ng-model='patient.address' placeholder="[Địa chỉ]" style="width:100%; margin-left: 0">
+				</div>
+			</div>
+			<p class="ap-h1 orange">BỆNH TRẠNG</p>
+			<p class="ap-h1 orange">Thể trạng</p>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<label>Chiều cao</label><input tabindex="0" class="no-border" ng-model='patient.condition.hight' placeholder="[xx mét]">
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<label>Cân nặng</label><input tabindex="0" class="no-border" ng-model='patient.condition.weight' placeholder="[xx kg]">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.mental.checked' type="checkbox" >Người mệt mỏi, tinh thần suy nhược</label><input tabindex="0" class="no-border" ng-model='patient.condition.mental.detail' placeholder="[Mô tả cảm giác của cơ thể]">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.appetite.checked' type="checkbox" >Ăn không ngon</label><input tabindex="0" class="no-border" ng-model='patient.condition.appetite.detail' placeholder="[Mô tả cảm giác của cơ thể]">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.losingSleep.checked' type="checkbox" >Khó ngủ, hay tỉnh giấc</label><input tabindex="0" class="no-border" ng-model='patient.condition.losingSleep.detail' placeholder="[Mô tả cảm giác của cơ thể]">
+				</div>
+			</div>
+			<div class="closebar"></div>
+			<p class="ap-h1 orange">Bệnh viêm họng hạt</p>
+			<div class="row">
+				<div class="col-lg-12">
+					<label>Kết luận của bác sĩ địa phương</label><input tabindex="0" class="no-border" ng-model='patient.condition.pharyngitis.diagnose' placeholder="[Kết luận của bác sĩ về các bệnh vùng họng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<label>Thời gian mắc bệnh</label><input tabindex="0" class="no-border" ng-model='patient.condition.pharyngitis.time' placeholder="[Thời gian từ lúc phát hiện viêm họng hạt đến nay]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.pharyngitis.pustule.checked' type="checkbox" >Có hạt trong họng</label><input tabindex="0" class="no-border" ng-model='patient.condition.pharyngitis.pustule.detail' placeholder="[Từ khi nào, số lượng, kích thước, màu sắc, mùi]" style="width:500px">
+				</div>
+			</div>
+			<div class="closebar"></div>
+			<p class="ap-h1 orange">Hệ hô hấp - hầu họng</p>
+
+			<div class="row">
+				<div class="col-lg-3 col-md-3 checkbox">
+					<label class="noafter"><input tabindex="0" ng-model='patient.condition.respiratory.neckItchy.checked' type="checkbox" >Ngứa cổ</label>
+				</div>
+				<div class="col-lg-9 col-md-9 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.respiratory.sputum.checked' type="checkbox" >Có đờm</label><input tabindex="0" class="no-border" ng-model='patient.condition.respiratory.sputum.detail' placeholder="[Nhiều hay ít, đặc hay loãng, màu gì]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-md-3 checkbox">
+					<label class="noafter"><input tabindex="0" ng-model='patient.condition.respiratory.diffSwallowing.checked' type="checkbox" >Nuốt vướng</label>
+				</div>
+				<div class="col-lg-9 col-md-9 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.respiratory.hemorrhage.checked' type="checkbox" >Xuất huyết</label><input tabindex="0" class="no-border" ng-model='patient.condition.respiratory.hemorrhage.detail' placeholder="[Có khạc ra máu không, nhiều  hay ít]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-md-3 checkbox">
+					<label class="noafter"><input tabindex="0" ng-model='patient.condition.respiratory.halitosis.checked' type="checkbox" >Hơi thở hôi</label>
+				</div>
+				<div class="col-lg-9 col-md-9 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.respiratory.cough.checked' type="checkbox" >Ho</label><input tabindex="0" class="no-border" ng-model='patient.condition.respiratory.cough.detail' placeholder="[Từ khi nào, kiểu ho, ho bao lâu, thời điểm]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-md-3 checkbox">
+					<label class="noafter"><input tabindex="0" ng-model='patient.condition.respiratory.rhinitis.checked' type="checkbox" >Viêm mũi dị ứng</label>
+				</div>
+				<div class="col-lg-9 col-md-9 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.respiratory.sinusitis.checked' type="checkbox" >Viêm xoang</label><input tabindex="0" class="no-border" ng-model='patient.condition.respiratory.sinusitis.detail' placeholder="[Từ khi nào, đã điều trị đến đâu]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-md-3 checkbox">
+					<label class="noafter"><input tabindex="0" ng-model='patient.condition.respiratory.bronchitis.checked' type="checkbox" >Viêm phế quản</label>
+				</div>
+				<div class="col-lg-9 col-md-9 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.respiratory.tuberculosis.checked' type="checkbox" >Lao phổi</label><input tabindex="0" class="no-border" ng-model='patient.condition.respiratory.tuberculosis.detail' placeholder="[Từ khi nào, đã điều trị đến đâu]" style="width:500px">
+				</div>
+			</div>
+			<div class="closebar"></div>
+			<p class="ap-h1 orange">Hệ tuần hoàn</p>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.circulatory.heartDisease.checked' type="checkbox" >Bệnh tim</label><input tabindex="0" class="no-border" ng-model='patient.condition.circulatory.heartDisease.detail' placeholder="[Kết luận, thời gian mắc, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.circulatory.bloodPressure.checked' type="checkbox" >Bệnh huyết áp</label><input tabindex="0" class="no-border" ng-model='patient.condition.circulatory.bloodPressure.detail' placeholder="[Kết luận, thời gian mắc, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.circulatory.hyperlipidemia.checked' type="checkbox" >Máu nhiễm mỡ</label><input tabindex="0" class="no-border" ng-model='patient.condition.circulatory.hyperlipidemia.detail' placeholder="[Kết luận, thời gian mắc, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.circulatory.bloodPoisoning.checked' type="checkbox" >Bệnh nhiễm độc máu</label><input tabindex="0" class="no-border" ng-model='patient.condition.circulatory.bloodPoisoning.detail' placeholder="[Kết luận, thời gian mắc, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.circulatory.atherosclerosis.checked' type="checkbox" >Bệnh xơ vữa động mạch</label><input tabindex="0" class="no-border" ng-model='patient.condition.circulatory.atherosclerosis.detail' placeholder="[Kết luận, thời gian mắc, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.circulatory.thrombosis.checked' type="checkbox" >Bệnh huyết khối tĩnh mạch</label><input tabindex="0" class="no-border" ng-model='patient.condition.circulatory.thrombosis.detail' placeholder="[Kết luận, thời gian mắc, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.circulatory.gout.checked' type="checkbox" >Bệnh Gout (gút – thống phong)</label><input tabindex="0" class="no-border" ng-model='patient.condition.circulatory.gout.detail' placeholder="[Kết luận, thời gian mắc, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.circulatory.diabetes.checked' type="checkbox" >Bệnh đái tháo đường (tiểu đường)</label><input tabindex="0" class="no-border" ng-model='patient.condition.circulatory.diabetes.detail' placeholder="[Kết luận, thời gian mắc, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="closebar"></div>
+			<p class="ap-h1 orange">Hệ tiêu hóa</p>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.digestion.gerd.checked' type="checkbox" >Trào ngược dạ dày thực quản (GERD)</label><input tabindex="0" class="no-border" ng-model='patient.condition.digestion.gerd.detail' placeholder="[Kết luận, thời gian mắc, đã điều trị đến đâu, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.digestion.hepaticSteatosis.checked' type="checkbox" >Gan nhiễm mỡ</label><input tabindex="0" class="no-border" ng-model='patient.condition.digestion.hepaticSteatosis.detail' placeholder="[Kết luận, thời gian mắc, đã điều trị đến đâu, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.digestion.hemorrhoids.checked' type="checkbox" >Bệnh trĩ</label><input tabindex="0" class="no-border" ng-model='patient.condition.digestion.hemorrhoids.detail' placeholder="[Trĩ nội hay ngoại, từ khi nào, điều trị đến đâu, các triệu chứng hiện tại]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.digestion.stomach.checked' type="checkbox" >Đau dạ dày</label><input tabindex="0" class="no-border" ng-model='patient.condition.digestion.stomach.detail' placeholder="[Kết luận, thời gian mắc, đã điều trị đến đâu, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.digestion.diarrhea.checked' type="checkbox" >Tiêu chảy</label><input tabindex="0" class="no-border" ng-model='patient.condition.digestion.diarrhea.detail' placeholder="[Từ khi nào, bao lâu 1 lần, 1 lần bao lâu, màu phân]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.digestion.constipation.checked' type="checkbox" >Táo bón</label><input tabindex="0" class="no-border" ng-model='patient.condition.digestion.constipation.detail' placeholder="[Từ khi nào, bao lâu 1 lần, 1 lần bao lâu, màu phân]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.digestion.enteritis.checked' type="checkbox" >Viêm ruột</label><input tabindex="0" class="no-border" ng-model='patient.condition.digestion.enteritis.detail' placeholder="[Kết luận, thời gian mắc, đã điều trị đến đâu, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.digestion.colitis.checked' type="checkbox" >Viêm đại tràng</label><input tabindex="0" class="no-border" ng-model='patient.condition.digestion.colitis.detail' placeholder="[Kết luận, thời gian mắc, đã điều trị đến đâu, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.digestion.proctitis.checked' type="checkbox" >Viêm trực tràng</label><input tabindex="0" class="no-border" ng-model='patient.condition.digestion.proctitis.detail' placeholder="[Kết luận, thời gian mắc, đã điều trị đến đâu, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<label>Tính chất phân</label><input tabindex="0" class="no-border" ng-model='patient.condition.digestion.shit.detail' placeholder="[Bạn thường đi cầu phân sống không, trong phân có nhiều dịch nhầy không, phân có thành khuôn không, màu trắng, vàng, nâu hay đen]" style="width:100%">
+				</div>
+			</div>
+			<div class="closebar"></div>
+			<p class="ap-h1 orange">Hệ tiết niệu - bài tiết</p>
+			<div class="row">
+				<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 checkbox">
+					<label class="noafter"><input tabindex="0" ng-model='patient.condition.excrete.urinaryRetention.checked' type="checkbox" >Bí tiểu</label>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 checkbox">
+					<label class="noafter"><input tabindex="0" ng-model='patient.condition.excrete.painfulUrination.checked' type="checkbox" >Tiểu buốt</label>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 checkbox">
+					<label class="noafter"><input tabindex="0" ng-model='patient.condition.excrete.splitUrine.checked' type="checkbox" >Tiểu rắc</label>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 checkbox">
+					<label class="noafter"><input tabindex="0" ng-model='patient.condition.excrete.yellowUrine.checked' type="checkbox" >Tiểu vàng</label>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 checkbox">
+					<label class="noafter"><input tabindex="0" ng-model='patient.condition.excrete.opaqueUrine.checked' type="checkbox" >Tiểu đục</label>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-4 col-xs-6 checkbox">
+					<label class="noafter"><input tabindex="0" ng-model='patient.condition.excrete.effervesceUrine.checked' type="checkbox" >Tiểu nhiều bọt</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.digestion.acne.checked' type="checkbox" >Nhiều mụn</label><input tabindex="0" class="no-border" ng-model='patient.condition.digestion.acne.detail' placeholder="[Mọc nhiều ở đâu, kích thước, số lượng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.digestion.seborrheicDermatitis.checked' type="checkbox" >Viêm da tiết bã</label><input tabindex="0" class="no-border" ng-model='patient.condition.digestion.seborrheicDermatitis.detail' placeholder="[Viêm ở đâu, số lượng, màu sắc, cảm giác vùng da bệnh]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.digestion.eczema.checked' type="checkbox" >Bệnh chàm</label><input tabindex="0" class="no-border" ng-model='patient.condition.digestion.eczema.detail' placeholder="[Vùng bị bệnh, số lượng, màu sắc, cảm giác vùng da bệnh]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.digestion.psoriasis.checked' type="checkbox" >Bệnh vẩy nến</label><input tabindex="0" class="no-border" ng-model='patient.condition.digestion.psoriasis.detail' placeholder="[Vùng bị bệnh, số lượng, màu sắc, cảm giác vùng da bệnh]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.digestion.sweatyPalms.checked' type="checkbox" >Ra mồ hôi tay</label><input tabindex="0" class="no-border" ng-model='patient.condition.digestion.sweatyPalms.detail' placeholder="[Từ khi nào, lúc ra mồ hôi đang làm gì, thời điểm, nhiều hay ít]" style="width:500px">
+				</div>
+			</div>
+			<div class="closebar"></div>
+			<p class="ap-h1 orange">Hệ cơ - xương - khớp</p>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.skeletal.heelPain.checked' type="checkbox" >Gai gót chân</label><input tabindex="0" class="no-border" ng-model='patient.condition.skeletal.heelPain.detail' placeholder="[Kết luận, thời gian mắc, đã điều trị đến đâu, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.skeletal.joints.checked' type="checkbox" >Bệnh khớp</label><input tabindex="0" class="no-border" ng-model='patient.condition.skeletal.joints.detail' placeholder="[Kết luận, thời gian mắc, đã điều trị đến đâu, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.skeletal.neckNshoulder.checked' type="checkbox" >Viêm vai gáy</label><input tabindex="0" class="no-border" ng-model='patient.condition.skeletal.neckNshoulder.detail' placeholder="[Kết luận, thời gian mắc, đã điều trị đến đâu, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.skeletal.sciaticNerve.checked' type="checkbox" >Đau thần kinh tọa</label><input tabindex="0" class="no-border" ng-model='patient.condition.skeletal.sciaticNerve.detail' placeholder="[Kết luận, thời gian mắc, đã điều trị đến đâu, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.skeletal.spinal.checked' type="checkbox" >Đau cột sống, thoái vị đĩa đệm</label><input tabindex="0" class="no-border" ng-model='patient.condition.skeletal.spinal.detail' placeholder="[Kết luận, thời gian mắc, đã điều trị đến đâu, hiện trạng]" style="width:500px">
+				</div>
+			</div>
+			<div class="closebar" ng-hide="patient.gender"></div>
+			<p class="ap-h1 orange" ng-hide="patient.gender">Phụ khoa - Sản khoa</p>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.obstetrics.disease.checked' type="checkbox" >Bệnh phụ khoa</label><input tabindex="0" class="no-border" ng-model='patient.condition.obstetrics.disease.detail' placeholder="[Tên bệnh, thời gian mắc, biểu hiện, đã điều trị đến đâu]" style="width: 360px;">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.obstetrics.pregnant.checked' type="checkbox" >Đang mang thai</label><input tabindex="0" class="no-border" ng-model='patient.condition.obstetrics.pregnant.detail' placeholder="[Thai được bao nhiêu tháng, tình trạng]" style="width: 360px;">
+				</div>
+				<div class="col-lg-12 col-md-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.obstetrics.lactating.checked' type="checkbox" >Đang cho con bú</label><input tabindex="0" class="no-border" ng-model='patient.condition.obstetrics.lactating.detail' placeholder="[Con được mấy tháng tuổi, tình trạng]" style="width: 360px;">
+				</div>
+			</div>
+			<div class="closebar"></div>
+			<p class="ap-h1 orange">Thói quen sinh hoạt</p>
+			<div class="row">
+				<div class="col-lg-4 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.routine.drink.checked' type="checkbox" >Uống rượu bia nhiều</label>
+				</div>
+				<div class="col-lg-4 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.routine.smoke.checked' type="checkbox" >Hút thuốc lá nhiều</label>
+				</div>
+				<div class="col-lg-4 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.routine.ice.checked' type="checkbox" >Uống đá lạnh nhiều</label>
+				</div>
+				<div class="col-lg-4 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.routine.eating.checked' type="checkbox" >Ăn uống không điều độ</label>
+				</div>
+				<div class="col-lg-4 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.routine.cooler.checked' type="checkbox" >Dùng máy lạnh nhiều</label>
+				</div>
+				<div class="col-lg-4 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.routine.smog.checked' type="checkbox" >Hít khói bụi nhiều</label>
+				</div>
+				<div class="col-lg-4 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.routine.late.checked' type="checkbox" >Thường thức khuya</label>
+				</div>
+				<div class="col-lg-4 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.routine.sit.checked' type="checkbox" >Thường ngồi lâu một chỗ</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.routine.masturbate.checked' type="checkbox" >Thủ dâm nhiều</label><input tabindex="0" class="no-border" ng-model='patient.condition.routine.masturbate.detail' placeholder="[Bao lâu một lần]" style="width:500px">
+				</div>
+				<div class="col-lg-12 checkbox">
+					<label><input tabindex="0" ng-model='patient.condition.routine.sex.checked' type="checkbox" >Quan hệ tình dục nhiều</label><input tabindex="0" class="no-border" ng-model='patient.condition.routine.masturbate.detail' placeholder="[Bao lâu một lần]" style="width:500px">
+				</div>
+			</div>
+			<div class="closebar"></div>
+			<p class="ap-h1 orange">Các bệnh khác</p>
+			<div class="row">
+				<div class="col-lg-12">
+					<label>Bệnh khác</label><input tabindex="0" class="no-border" ng-model='patient.condition.another' placeholder="[Các bệnh khác đang mắc phải]" style="width:500px">
+				</div>
+			</div>
+			<div class="closebar"></div>
+			<p class="ap-h1 orange">Yêu cầu đặc biệt</p>
+			<div class="row">
+				<div class="col-lg-12">
+					<label>Yêu cầu</label><input tabindex="0" class="no-border" ng-model='patient.condition.request' placeholder="[Các yêu cầu, nguyện vọng đặc biệt]" style="width:500px">
+				</div>
+			</div>
+			<div class="closebar"></div>
+			<p class="ap-h1 orange">ĐỊA CHỈ NHẬN THUỐC</p>
+			<div class="row">
+				<div class="col-lg-12">
+					<label>Địa chỉ</label><input tabindex="0" class="no-border" ng-model='patient.condition.address' placeholder="[Thuốc sẽ được chuyển đến địa chỉ này]" style="width:500px">
+				</div>
+			</div>
+			<div class="closebar"></div>
+		</div>
+	</div>
+
+</form>
+<style type="text/css">
+	#npForm{
+		height: 100%;
+		width: 100%;
+	}
+	.add-wrapper{
+		height: 100%;
+		width: 100%;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+	.add-wrapper > .panel-heading{
+		border-top-left-radius: inherit;
+		border-top-right-radius: inherit;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+	.add-wrapper > .panel-heading button{
+		margin-left: 5px;
+	}
+	.panel-container{
+		height: -moz-calc(100% - 49px);
+		height: -webkit-calc(100% - 49px);
+		height: -o-calc(100% - 49px);
+		height: calc(100% - 49px);
+		padding: 50px;
+		padding-top: 30px;
+		font-size: 15px;
+		overflow-y: auto;
+	}
+	.credit-balance{
+		float: left;
+		font-size: 20px;
+	}
+	.credit-balance input{
+
+	}
+	.orange{color: #eb7b31}
+	.ap-header{font-size: 25px; margin-bottom: 50px; margin-top: 50px}
+	.ap-h1{
+		margin-top: 20px;
+		font-size: 15px;
+		border-bottom: 1px solid #eb7b31;
+	}
+	.panel-container label{
+		color: #2E74B5;
+		font-weight: normal;
+		margin-bottom: 5px;
+	}
+	.panel-container label::after{
+		content: ':';
+		color: #2E74B5;
+		margin-left: 3px;
+	}
+	.panel-container label.noafter::after{
+		display: none;
+	}
+	.no-border{
+		margin-left: 5px;
+		border: none;
+	}
+	.smalli{
+		width: 100px;
+	}
+	.add-wrapper .checkbox{margin: 0}
+	/*.add-wrapper .checkbox label{margin-bottom: auto;}*/
+	.closebar{margin-top:5px; border-top: 1px solid #eb7b31;}
+	.vMessage{
+		color: #FF5959;
+	}
+</style>
+<script type="text/javascript">
+</script>
