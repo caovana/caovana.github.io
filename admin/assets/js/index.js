@@ -67,7 +67,7 @@ vhh.filter('searchPatient', function () {
 	return function (ps, query) {
 		query = query.toLowerCase();
 		var filtered = [];
-		for (var i = ps.length - 1; i >= 0; i--) {
+		for (var i = 0; i < ps.length; i++) {
 			if(searchInChild(ps[i],query)){
 				var summary = getSummary(ps[i]);
 				if(summary) ps[i].summary = summary;
@@ -157,7 +157,7 @@ vhh.controller("patientCtrl", ["$scope","$rootScope", "$firebaseAuth", "$state",
 
 	//Scope variable
 	runIcon();
-	$scope.patients = $firebaseArray($scope.ref);
+	$scope.patients = $firebaseArray($scope.ref.orderByChild('createTime'));
 	$scope.patients.$loaded(function () {
 		stopIcon();
 	});
