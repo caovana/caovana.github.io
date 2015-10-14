@@ -352,7 +352,6 @@ vhh.controller("editPatientCtrl", function($scope,$rootScope, $firebaseAuth, $st
 vhh.controller("exportPatientCtrl", function ($scope,$rootScope, $firebaseAuth, $state, $firebaseObject,$firebaseArray) {
 	checkAuthStatus($state);
 	$scope.isAdding = true;
-	var exKey;
 	$scope.ref = rootRef.child('patients').child($state.params.id);
 	$scope.patient = $firebaseObject($scope.ref);
 	$scope.patient.$loaded(function () {
@@ -409,56 +408,57 @@ vhh.controller("exportPatientCtrl", function ($scope,$rootScope, $firebaseAuth, 
 	$scope.save = function (isValid) {
 		timeCollect();
 		if ($scope.isAdding) {
-			var hisRef = $scope.ref.child('credit/history');
-			var exRef = $scope.ref.child('export');
-			var newEx = exRef.push($scope.exportInfo,function (e) {
-				if(e){
-					nlog("Không thể xuất thuốc")
-				}else{
-					if($scope.patient.credit){
-						credit = parseInt($scope.patient.credit.balance) - parseInt($scope.exportInfo.price);
-						$scope.patient.credit.balance = credit;
+			if($scope.patient.credit){
+				$scope.patient.credit.balance = parseInt($scope.patient.credit.balance) - parseInt($scope.exportInfo.price);
+			}else{
+				$scope.patient.credit = {balance: -parseInt($scope.exportInfo.price)}
+			}
+			
+			$scope.patient.$save().then(function () {
+				var hisRef = $scope.ref.child('credit/history');
+				$scope.exportInfo.creditHisID = hisRef.push({credit: (- parseInt($scope.exportInfo.price)), time: (new Date()).getTime(), balance: $scope.patient.credit.balance, reason: "Xuất thuốc", status:1}).key();
+				
+				var exRef = $scope.ref.child('export');
+				var newEx = exRef.push($scope.exportInfo,function (e) {
+					if(e){
+						nlog("Không thể xuất thuốc")
 					}else{
-						credit = 0 - parseInt($scope.exportInfo.price);
-						$scope.patient.credit = {balance:credit}
+						nlog("Xuất thuốc thành công");
+						$scope.edit(newEx.key());
 					}
-					$scope.patient.$save();
-					hisRef.push({credit: credit, time: (new Date()).getTime(), balance: $scope.patient.credit.balance, reason: "Xuất thuốc", status:1, exID: newEx.key()});
-					nlog("Xuất thuốc thành công");
-
-					$scope.isAdding = false;
-					exKey = newEx.key();
-				}
-			})
+			});
+			});
 		}
 		else{
-			var exRef = $scope.ref.child('export/'+exKey);
-			exRef.update($scope.exportInfo, function (error) {
-				if(error){
-					nlog("Không thể sửa thông tin");
-					log(error);
-				}else{
-					nlog("Sửa thông tin thành công");
-				}
-			})
+
+			var creditHisRef = $scope.ref.child('credit/history/'+$scope.exportInfo.creditHisID);
+			var creditHis = $firebaseObject(creditHisRef);
+			creditHis.$loaded(function () {
+				$scope.tempCredit = parseInt($scope.exportInfo.price) + parseInt(creditHis.credit);
+				$scope.patient.credit.balance = parseInt($scope.patient.credit.balance) - parseInt($scope.tempCredit);
+				$scope.patient.$save().then(function () {
+					creditHis.credit = -$scope.exportInfo.price;
+					creditHis.balance = $scope.patient.credit.balance;
+					creditHis.time = $scope.exportInfo.exTime;
+					creditHis.$save();
+					$scope.exportInfo.$save().then(function() {
+						nlog("Sửa phiếu xuất thành công.")
+					}).catch(function(error) {
+						alert('Lỗi! Không thể sửa phiếu xuất này');
+					});
+				})
+			});
 		}
 	}
-	$scope.edit = function (ex) {
+	$scope.edit = function (id) {
+		$scope.editID = id;
 		$scope.isAdding = false;
-		exKey = ex.$id;
-		timeInit(new Date(ex.exTime));
-		if($scope.exportInfo){
-			$scope.exportInfo.price = ex.price;
-			$scope.exportInfo.elements = ex.elements;
-			$scope.exportInfo.happenings = ex.happenings;
-		}else{
-			$scope.exportInfo = {
-				price: ex.price,
-				elements: ex.elements,
-				happenings: ex.happenings
-			};
-		}
-		$scope.price = toCurrency(ex.price);
+		var exRef = $scope.ref.child('export/'+id);
+		$scope.exportInfo = $firebaseObject(exRef);
+		$scope.exportInfo.$loaded(function(){
+			timeInit(new Date($scope.exportInfo.exTime));
+			$scope.price = toCurrency($scope.exportInfo.price);
+		})
 	}
 	$scope.deleteEx = function (ex) {
 		var i = $scope.exportList.$indexFor(ex.$id);
@@ -467,7 +467,11 @@ vhh.controller("exportPatientCtrl", function ($scope,$rootScope, $firebaseAuth, 
 				if($scope.patient.credit){
 					if($scope.patient.credit.balance){
 						$scope.patient.credit.balance = parseInt($scope.patient.credit.balance) + parseInt(ex.price);
-						$scope.patient.$save();
+						$scope.patient.$save().then(function () {
+							var creditHistoryRef = $scope.ref.child('credit/history');
+							creditHistoryRef.push({credit: parseInt(ex.price), time: (new Date(ex.exTime)).getTime(), balance: $scope.patient.credit.balance, reason: "Xóa suất thuốc (Trả thuốc)", status:1, exID: ex.$id});
+						});
+
 					}
 				}
 			}
@@ -506,19 +510,30 @@ vhh.controller("currencyDetailCtrl",  function ($scope,$rootScope, $firebaseAuth
 	$scope.tinhtien = function () {
 		if($scope.creditValue){
 			if($scope.sum){
-				$scope.patient.credit.balance = parseInt($scope.patient.credit.balance) + parseInt($scope.creditValue);
+				if($scope.patient.credit){
+					$scope.patient.credit.balance = parseInt($scope.patient.credit.balance) + parseInt($scope.creditValue);
+				}else{
+					$scope.patient.credit = {balance : parseInt($scope.creditValue)};
+				};
+				var credit = $scope.creditValue;
 				$scope.patient.$save().then(function(){
-					nlog("Nạp tiền thành công!")
+					$scope.ref.child('credit/history').push({credit: parseInt(credit), time: (new Date()).getTime(), balance: $scope.patient.credit.balance, reason: "Nạp tiền", status: 1});
+					nlog("Nạp tiền thành công!");
 				});
-				$scope.ref.child('credit/history').push({credit: parseInt($scope.creditValue), time: (new Date()).getTime(), balance: $scope.patient.credit.balance, reason: "Nạp tiền", status: 1});
+				
 			}else{
-				var sobitru = parseInt($scope.patient.credit.balance);
-				var sotru = parseInt($scope.creditValue);
-				$scope.patient.credit.balance = sobitru - sotru;
+				if($scope.patient.credit){
+					var sobitru = parseInt($scope.patient.credit.balance);
+					var sotru = parseInt($scope.creditValue);
+					$scope.patient.credit.balance = sobitru - sotru;
+				}else{
+					$scope.patient.credit = {balance: -sotru};
+				}
+				
 				$scope.patient.$save().then(function(){
-					nlog("Rút tiền thành công!")
-				});
-				$scope.ref.child('credit/history').push({credit: sotru, time: (new Date()).getTime(), balance: $scope.patient.credit.balance, reason: "Rút tiền", status: 1});
+					$scope.ref.child('credit/history').push({credit: sotru, time: (new Date()).getTime(), balance: $scope.patient.credit.balance, reason: "Rút tiền", status: 1});
+					nlog("Rút tiền thành công!");
+				});			
 			}
 		}
 		$scope.credit = '';
