@@ -67,7 +67,7 @@ vhh.filter('searchPatient', function () {
 	return function (ps, query) {
 		query = query.toLowerCase();
 		var filtered = [];
-		for (var i = 0; i < ps.length; i++) {
+		for (var i = ps.length - 1; i >= 0; i--) {
 			if(searchInChild(ps[i],query)){
 				var summary = getSummary(ps[i]);
 				if(summary) ps[i].summary = summary;
