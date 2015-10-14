@@ -194,10 +194,13 @@ vhh.controller("editPatientCtrl", function($scope,$rootScope, $firebaseAuth, $st
 		})
 		$scope.deleteCurrentPatient = function () {
 			if(confirm("Bạn chắc chắn muốn xóa bệnh nhân này?")){
-				$scope.patient.$remove().then(function (ref) {
-					$state.go('patient');
-				}, function (error) {
-					log(error)
+				$scope.ref.remove(function (error) {
+					if (error) {
+						nlog("Không thể xóa bệnh nhân này");
+					}else{
+						$state.go('patient');
+						nlog("Xóa bệnh nhân thành công");
+					}
 				});
 			}
 		}
@@ -274,20 +277,25 @@ vhh.controller("editPatientCtrl", function($scope,$rootScope, $firebaseAuth, $st
 			// 	};
 			// };
 			timeCollect();
-			if($scope.isAdding){
-				$scope.ref = rootRef.child('patients').push($scope.patient, function(error) {
-					if (error) {log(error)}
-						else {
-							nlog('Thêm bệnh nhân thành công!');
-							$scope.ref.child("credit/history").push({time: (new Date()).getTime(), status: 1, reason: "Nạp tiền lần đầu", credit: $scope.patient.credit.balance, balance: $scope.patient.credit.balance});
-							$state.go('patient.edit',{id:$scope.ref.key()});
-						}
+			if(!$scope.isAdded){
+				if($scope.isAdding){
+					$scope.ref = rootRef.child('patients').push($scope.patient, function(error) {
+						if (error) {log(error)}
+							else {
+								nlog('Thêm bệnh nhân thành công!');
+								if ($scope.patient.credit) {
+									$scope.ref.child("credit/history").push({time: (new Date()).getTime(), status: 1, reason: "Nạp tiền lần đầu", credit: $scope.patient.credit ? $scope.patient.credit.balance : 0, balance: $scope.patient.credit ? $scope.patient.credit.balance: 0});
+								};
+								$state.go('patient.edit',{id:$scope.ref.key()});
+							}
+						});
+				}else{
+					$scope.patient.$save().then(function(){
+						nlog("Sửa thông tin thành công!")
 					});
-			}else{
-				$scope.patient.$save().then(function(){
-					nlog("Sửa thông tin thành công!")
-				});
+				}
 			}
+			$scope.isAdded = true;
 		// }else nlog("Nội dung nhập chưa đúng, không thể lưu!");
 		
 	}
@@ -454,28 +462,22 @@ vhh.controller("exportPatientCtrl", function ($scope,$rootScope, $firebaseAuth, 
 	}
 	$scope.deleteEx = function (ex) {
 		var i = $scope.exportList.$indexFor(ex.$id);
-		log("delete");
-		log(ex);
-		// $confirm({text: 'Are you sure you want to delete?', title: 'Delete it', ok: 'Yes', cancel: 'No'})
-		// .then(function() {
-		// 	log("Deleted");
-		// });	
-		// if(confirm("Thật sự muốn xóa suất thuốc này?")){
-		// 	if(confirm("Có muốn trả tiền lại tài khoản không?")){
-		// 		if($scope.patient.credit){
-		// 			if($scope.patient.credit.balance){
-		// 				$scope.patient.credit.balance = parseInt($scope.patient.credit.balance) + parseInt(ex.price);
-		// 				$scope.patient.$save();
-		// 			}
-		// 		}
-		// 	}
-		// 	log($scope.exportList[i].status);
-		// 	$scope.exportList[i].status = 0;
-		// 	log($scope.exportList[i].status);
-		// 	$scope.exportList.$save(i).then(function () {
-		// 		nlog("Xóa lịch sử xuất thuốc thành công");
-		// 	})
-		// }
+		if(confirm("Thật sự muốn xóa suất thuốc này?")){
+			if(confirm("Có muốn trả tiền lại tài khoản không?")){
+				if($scope.patient.credit){
+					if($scope.patient.credit.balance){
+						$scope.patient.credit.balance = parseInt($scope.patient.credit.balance) + parseInt(ex.price);
+						$scope.patient.$save();
+					}
+				}
+			}
+			log($scope.exportList[i].status);
+			$scope.exportList[i].status = 0;
+			log($scope.exportList[i].status);
+			$scope.exportList.$save(i).then(function () {
+				nlog("Xóa lịch sử xuất thuốc thành công");
+			})
+		}
 	}
 });
 vhh.controller("currencyDetailCtrl",  function ($scope,$rootScope, $firebaseAuth, $state, $firebaseObject, $firebaseArray) {
@@ -602,6 +604,7 @@ function nlog(message){
 	$('<div class="nlm" hidden>'+message+'</div>').appendTo('.nlog').fadeIn(100).delay(2000).fadeOut(500).queue(function(){$(this).remove();});
 }
 function pad (str, lenght) {
+	if(str === '0' || str == 0) return '00';
 	if(str){
 		str = str.toString();
 		var p = '00';

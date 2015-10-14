@@ -17,8 +17,8 @@
 	<ul class="patient-list">
 		<li ng-repeat="patient in patients | searchPatient: query">
 			<div class="gender-icon">
-				<i ng-show="patient.gender" class="fa fa-mars"></i>
-				<i ng-hide="patient.gender" class="fa fa-venus"></i>
+				<i ng-show="patient.gender" class="fa fa-mars" hidden></i>
+				<i ng-hide="patient.gender" class="fa fa-venus" hidden></i>
 			</div>
 			<div class="pInfo" ng-click="patientClick($event)">
 				<div class="pTitle">

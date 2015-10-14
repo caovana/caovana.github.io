@@ -1,9 +1,9 @@
-<form id="npForm" name="npForm" ng-submit="savePatient(npForm.$valid)" novalidate>
+<form id="npForm" name="npForm" novalidate>
 	<div class="add-wrapper panel panel-default">
 		<div class="panel-heading">
 			<!-- <button class="close" ng-click="closeFrame()">&times;</button> -->
-			<button class="btn btn-success pull-right save-btn" type="submit" ng-show="isAdding" ng-disabled="!npForm.$valid">Lưu</button>
-			<button class="btn btn-success pull-right save-btn" type="submit" ng-hide="isAdding" ng-disabled="!npForm.$valid">Cập nhật</button>
+			<button class="btn btn-success pull-right save-btn" ng-show="isAdding" ng-disabled="!npForm.$valid" ng-click="savePatient()">Lưu</button>
+			<button class="btn btn-success pull-right save-btn" ng-click="savePatient()" ng-hide="isAdding" ng-disabled="!npForm.$valid">Cập nhật</button>
 			<button class="btn btn-warning pull-right" ng-click="goExportFrame()" ng-hide="isAdding">Xuất thuốc</button>
 			<button class="btn btn-danger pull-right delete-btn" ng-click="deleteCurrentPatient()" ng-hide="isAdding">Xóa</button>
 			<button class="btn btn-default pull-right cancel-btn" ng-click="exit()" ng-show="isAdding">Hủy</button>
