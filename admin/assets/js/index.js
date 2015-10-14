@@ -665,12 +665,14 @@ function getSummary (patient) {
 		if (exists('condition.respiratory.tuberculosis.checked',patient)) {addSummary('lao phổi')};
 		if (exists('condition.circulatory.heartDisease.checked',patient)) {addSummary('bệnh tim')};
 		if (exists('condition.circulatory.bloodPressure.checked',patient)) {addSummary('huyết áp')};
+		if (exists('condition.circulatory.hyperlipidemia.checked',patient)) {addSummary('máu nhiễm mỡ')};
 		if (exists('condition.circulatory.bloodPoisoning.checked',patient)) {addSummary('nhiễm độc máu')};
 		if (exists('condition.circulatory.atherosclerosis.checked',patient)) {addSummary('xơ vữa động mạch')};
 		if (exists('condition.circulatory.thrombosis.checked',patient)) {addSummary('huyết khối tĩnh mạch')};
 		if (exists('condition.circulatory.gout.checked',patient)) {addSummary('gout')};
 		if (exists('condition.circulatory.diabetes.checked',patient)) {addSummary('tiểu đường')};
 		if (exists('condition.digestion.gerd.checked',patient)) {addSummary('GERD')};
+		if (exists('condition.digestion.hepaticSteatosis.checked',patient)) {addSummary('gan nhiễm mỡ')};
 		if (exists('condition.digestion.hemorrhoids.checked',patient)) {addSummary('trĩ')};
 		if (exists('condition.digestion.stomach.checked',patient)) {addSummary('đau dạ dày')};
 		if (exists('condition.digestion.diarrhea.checked',patient)) {addSummary('tiêu chảy')};
@@ -695,6 +697,9 @@ function getSummary (patient) {
 		if (exists('condition.skeletal.neckNshoulder.checked',patient)) {addSummary('viêm vai gáy')};
 		if (exists('condition.skeletal.sciaticNerve.checked',patient)) {addSummary('đau thần kinh tọa')};
 		if (exists('condition.skeletal.spinal.checked',patient)) {addSummary('đau cột sống')};
+		if (exists('condition.obstetrics.disease.checked',patient)) {addSummary('bệnh phụ khoa')};
+		if (exists('condition.obstetrics.pregnant.checked',patient)) {addSummary('đang mang thai')};
+		if (exists('condition.obstetrics.lactating.checked',patient)) {addSummary('đang cho con bú')};
 		if (exists('condition.routine.drink.checked',patient)) {addSummary('uống rượu bia nhiều')};
 		if (exists('condition.routine.smoke.checked',patient)) {addSummary('hút thuốc nhiều')};
 		if (exists('condition.routine.ice.checked',patient)) {addSummary('uống đá lạnh nhiều')};
