@@ -680,6 +680,7 @@ function getSummary (patient) {
 		if (exists('condition.digestion.enteritis.checked',patient)) {addSummary('viêm ruột')};
 		if (exists('condition.digestion.colitis.checked',patient)) {addSummary('viêm đại tràng')};
 		if (exists('condition.digestion.proctitis.checked',patient)) {addSummary('viêm trực tràng')};
+		if (exists('condition.digestion.defecation.detail',patient)) {addSummary('đại tiện: '+patient.condition.digestion.defecation.detail)};
 		if (exists('condition.digestion.shit.detail',patient)) {addSummary(patient.condition.digestion.shit.detail)};
 		if (exists('condition.excrete.urinaryRetention.checked',patient)) {addSummary('bí tiểu')};
 		if (exists('condition.excrete.painfulUrination.checked',patient)) {addSummary('tiểu buốt')};
